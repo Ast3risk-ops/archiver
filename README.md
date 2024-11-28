@@ -14,8 +14,8 @@ Supports being added to servers as well as being used as a user app.
   ```sh
   pipenv install
   ```
-5. Start the bot
+5. start the bot
   ```sh
   pipenv run bot
   ```
-6. Invite it n stuff (set the scopes of `bot` and `applications.commands` when making your OAuth2 URL)
+6. invite it n stuff (set the scopes of `bot` and `applications.commands` when making your OAuth2 URL)
