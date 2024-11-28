@@ -1,5 +1,7 @@
 No invite link yet because I haven't set up hosting.
 
+Supports being added to servers as well as being used as a user app.
+
 ## Self-Hosting
 
 \<better instructions soon\>
