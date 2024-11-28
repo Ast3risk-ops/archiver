@@ -23,7 +23,7 @@ class DeleteBookmark(discord.ui.View):
         discord.IntegrationType.guild_install,
         discord.IntegrationType.user_install,
     },
-   name="Save Message"
+   name="Add to Bookmarks"
 )
 async def bookmark_tag(
     ctx,
