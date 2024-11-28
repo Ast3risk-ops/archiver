@@ -16,7 +16,8 @@ class TagSet(discord.ui.Modal):
 class DeleteBookmark(discord.ui.View):
     @discord.ui.button(label="", style=discord.ButtonStyle.secondary, emoji="🗑️")
     async def button_callback(self, button, interaction):
-        await self.message.delete()
+        self.disable_all_items()
+        await interaction.message.delete()
 @bot.message_command(
     # This command can be used by guild members, but also by users anywhere if they install it
     integration_types={
