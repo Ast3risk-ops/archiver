@@ -15,3 +15,4 @@ No invite link yet because I haven't set up hosting.
   ```sh
   pipenv run bot
   ```
+6. Invite it n stuff (set the scopes of `bot` and `applications.commands` when making your OAuth2 URL)
