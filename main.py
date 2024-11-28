@@ -36,7 +36,7 @@ class TagSet(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         # Modal for tag input
-        self.add_item(discord.ui.InputText(label="Tags (seperated with commas)"))
+        self.add_item(discord.ui.InputText(label=Tag(s)))
 @bot.message_command(
     # This command can be used by guild members, but also by users anywhere if they install it
     integration_types={
@@ -50,7 +50,7 @@ async def bookmark_tag(
     message: discord.Message
 ):
     
-    modal = TagSet(title="Save With Tag")
+    modal = TagSet(title="Tag(s) to save with")
     await ctx.send_modal(modal)
     await modal.wait() # Wait for the modal to finish
     await ctx.respond(f"🔖 Bookmarked!", ephemeral=True)
