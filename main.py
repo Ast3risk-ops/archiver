@@ -18,6 +18,14 @@ class DeleteBookmark(discord.ui.View):
     async def button_callback(self, button, interaction):
         self.disable_all_items()
         await interaction.message.delete()
+    @discord.ui.button(label="", style=discord.ButtonStyle.secondary, emoji="📌")
+    async def pin_callback(self, button, interaction):
+        await interaction.message.pin()
+    @discord.ui.button(label="", style=discord.ButtonStyle.secondary, emoji="⬇️")
+    async def button2_callback(self, button, interaction):
+        await interaction.message.reply(embed=interaction.message.embeds[0])
+        for i in interaction.message.attachments:
+            await interaction.message.reply(i)
 @bot.message_command(
     # This command can be used by guild members, but also by users anywhere if they install it
     integration_types={
@@ -37,12 +45,20 @@ async def bookmark_tag(
     embed.add_field(name="<:mdiaccount:1311490376091045989> Author", value=f"<@{message.author.id}>", inline=True)
     embed.add_field(name="<:mdilinkvariant:1311490590747267082> Link", value=f"{message.jump_url}", inline=True)
     embed.add_field(name="<:mdicodetags:1311506780332752977> ID", value=f"`{message.id}`", inline=True)
+    if message.embeds:
+        numembeds = len(message.embeds)
+        embed.add_field(name="<:mdicardtext:1311825458480021596> Embeds", value=f"{numembeds}", inline=True)
+    else:
+        embed.add_field(name="<:mdicardtext:1311825458480021596> Embeds", value=f"None", inline=True)
     embed.add_field(name="<:mditag:1311505882047189012> Tags", value=f"{modal.children[0].value}", inline=True)
     embed.add_field(name="<:mdicalendar:1311544097240121384> Send Date", value="", inline=False)
     embed.set_thumbnail(url=f"{message.author.avatar.url}")
     await ctx.user.send(embed=embed, view=DeleteBookmark())
     for i in message.attachments:
         await ctx.user.send(i)
+    if message.embeds:
+        for i in message.embeds:
+            await ctx.user.send(embed=i)
 
 
 if __name__ == "__main__":
