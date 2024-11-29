@@ -1,17 +1,17 @@
 # Nuxt dev/build outputs
-www/.output
-www/.data
-www/.nuxt
-www/.nitro
-www/.cache
-www/dist
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
 
 # Node dependencies
-www/node_modules
+node_modules
 
 # Logs
-www/logs
-www/*.log
+logs
+*.log
 
 # Misc
 .DS_Store
