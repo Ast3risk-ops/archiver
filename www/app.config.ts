@@ -3,6 +3,7 @@ export default defineAppConfig({
     site: {
       name: 'Archiver',
       description: 'Never lose another Discord message again.',
+      ogImage: '/hero.png',
       ogImageComponent: 'ShadcnDocs',
     },
     theme: {
