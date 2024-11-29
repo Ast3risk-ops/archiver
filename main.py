@@ -48,8 +48,6 @@ async def bookmark_tag(
     if message.embeds:
         numembeds = len(message.embeds)
         embed.add_field(name="<:mdicardtext:1311825458480021596> Embeds", value=f"{numembeds}", inline=True)
-    else:
-        embed.add_field(name="<:mdicardtext:1311825458480021596> Embeds", value=f"None", inline=True)
     embed.add_field(name="<:mditag:1311505882047189012> Tags", value=f"{modal.children[0].value}", inline=True)
     embed.add_field(name="<:mdicalendar:1311544097240121384> Send Date", value="", inline=False)
     embed.set_thumbnail(url=f"{message.author.avatar.url}")
