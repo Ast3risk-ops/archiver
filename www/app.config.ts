@@ -5,6 +5,11 @@ export default defineAppConfig({
       description: 'Never lose another Discord message again.',
       ogImage: '/hero.png',
       ogImageComponent: 'ShadcnDocs',
+      umami: {
+        enable: true,
+        src: 'https://t.asterisk.lol/script.js',
+        dataWebsiteId: '11eb1bd6-9ded-4e71-b22d-5608beaff662',
+      },    
     },
     theme: {
       customizable: false,
