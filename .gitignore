@@ -5,6 +5,7 @@ www/.nuxt
 www/.nitro
 www/.cache
 www/dist
+www/.netlify
 
 # Node dependencies
 www/node_modules
