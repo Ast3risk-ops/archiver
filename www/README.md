@@ -18,4 +18,4 @@ bun run dev
 
 See the [theme documentation](https://shadcn-docs-nuxt.vercel.app/getting-started/introduction) for more details on writing content and components.
 
-Please only use the included icon sets (lucide, simple-icons and vscode-icons).
+Please only use the included icon sets (`lucide`, `simple-icons` and `vscode-icons`).
