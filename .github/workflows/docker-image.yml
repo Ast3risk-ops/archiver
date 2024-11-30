@@ -3,6 +3,17 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - '*.py'
+      - 'requirements.txt'
+      - 'Pipfile'
+      - 'Pipfile.lock'
+      - 'Dockerfile'
+      - 'docker-compose.yml'
+      - '.dockerignore'
+      - 'context.png'
+      - '.github/workflows/docker-image.yml'
+      
   release:
     types: [ published ]
 
