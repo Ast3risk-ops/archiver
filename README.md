@@ -1,7 +1,9 @@
-No invite link yet because I haven't set up hosting.
+<div align="center">
+<img src="../../raw/main/archiver-hero.png">
 
-Supports being added to servers as well as being used as a user app.
 
-## Self-Hosting (Requires Python 3.9 or later)
+-------
+<a href="https://archiver.asterisk.lol">Website</a> - <a href="https://discord.gg/d3a9dW9KHN">Support server</a>
 
-Moved to [the website](https://archiver.asterisk.lol/selfhost/).
+-------
+</div>
