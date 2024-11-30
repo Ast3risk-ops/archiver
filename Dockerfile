@@ -18,6 +18,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # We need to define the command to launch when we are going to run the image.
 # We use the keyword 'CMD' to do that.
 # The following command will execute "python ./main.py".
-RUN user archiver
+RUN adduser archiver
 USER archiver
 CMD [ "python3", "./main.py" ]
