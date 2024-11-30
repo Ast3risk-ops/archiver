@@ -1,5 +1,5 @@
-name: Bug Report
-description: File a bug report.
+name: 🐛 Bug Report
+description: Report a bug with the bot or website.
 title: "🐛 "
 labels: ["bug"]
 assignees:
