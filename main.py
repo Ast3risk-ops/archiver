@@ -5,15 +5,39 @@ from datetime import datetime as dt
 from dotenv import load_dotenv
 load_dotenv()
 
+website = "https://caltrop.asterisk.lol" # Will save a lot of time if the domain changes
+
+embed = None
+
 webhookurl = str(os.getenv("WEBHOOK_URL"))
 intents = discord.Intents.default()
 bot = ezcord.Bot(language="en", error_webhook_url=webhookurl, intents=intents)
 
 class TagSet(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
-        super().__init__(*args, **kwargs)
+        super().__init__(title="Message Tag(s)")
         # Modal for tag input
         self.add_item(discord.ui.InputText(label="", required=False))
+class ColourModal(discord.ui.Modal):
+    def __init__(self):
+        super().__init__(title="Customizer")
+
+        self.add_item(discord.ui.InputText(label="Hex Colour Code", placeholder="#FF5733", required=True))
+
+    async def callback(self, interaction: discord.Interaction):
+        color_input = self.children[0].value
+
+        # Validate the color input
+        if not color_input.startswith("#") or len(color_input) != 7:
+            await interaction.response.send_message("Please enter a valid hex color code (e.g., #FF5733).", ephemeral=True)
+            return
+
+        # Update the global embed color
+        global embed
+        embed.color = int(color_input[1:], 16)
+
+        # Edit the original message with the updated embed
+        await interaction.response.edit_message(embed=embed)
 class DeleteBookmark(discord.ui.View):
     @discord.ui.button(label="", style=discord.ButtonStyle.secondary, emoji="🗑️")
     async def button_callback(self, button, interaction):
@@ -29,6 +53,44 @@ class DeleteBookmark(discord.ui.View):
             await interaction.message.reply(embed=i, view=DeleteBookmark())
         for i in interaction.message.attachments:
             await interaction.message.reply(i)
+    @discord.ui.button(label="", style=discord.ButtonStyle.secondary, emoji="🎨")
+    async def customizer(self, button, interaction):
+        await interaction.response.send_modal(ColourModal())
+class About(discord.ui.View):
+    def __init__(self):
+        super().__init__(timeout=None)
+
+        SiteButton = discord.ui.Button(label='Website', style=discord.ButtonStyle.url, url='https://archiver.asterisk.lol')
+        self.add_item(SiteButton)
+
+@bot.slash_command(
+    # This command can be used by guild members, but also by users anywhere if they install it
+    integration_types={
+        discord.IntegrationType.guild_install,
+        discord.IntegrationType.user_install,
+    },
+   name="help",
+   description="How to use the bot"
+)
+async def help(ctx):
+    context_img = discord.File("context.png", filename="context.png")
+    embed = discord.Embed(title="Using Archiver", description="To use Archiver, simply right click or hold down on a message and go to **Apps > Archive Message**.", color=discord.Colour.from_rgb(255, 255, 255))
+    embed.set_image(url="attachment://context.png")
+    await ctx.respond(embed=embed, file=context_img, ephemeral=True)
+
+@bot.slash_command(
+    # This command can be used by guild members, but also by users anywhere if they install it
+    integration_types={
+        discord.IntegrationType.guild_install,
+        discord.IntegrationType.user_install,
+    },
+   name="about",
+   description="Links and stuff"
+)
+async def about(ctx):
+    embed = discord.Embed(title="About", description=f"[**Archiver**]({website}) is a bot to archive Discord messages, developed by [**Asterisk**](https://asterisk.lol).", color=discord.Colour.from_rgb(255, 255, 255))
+    await ctx.respond(embed=embed, view=About(), ephemeral=True)
+
 @bot.message_command(
     # This command can be used by guild members, but also by users anywhere if they install it
     integration_types={
@@ -41,7 +103,7 @@ async def bookmark_tag(
     ctx,
     message: discord.Message
 ):
-    modal = TagSet(title="Message Tag(s)")
+    modal = TagSet()
     await ctx.send_modal(modal)
     await modal.wait() # Wait for the modal to be submitted before archiving
     reactionlist = [] # Empty list of reactions to use later
@@ -49,6 +111,7 @@ async def bookmark_tag(
         count = i.count # Number of times reacted
         formatted_emoji = str(i.emoji)
         reactionlist.append(f"{count}x {formatted_emoji} ")
+    global embed
     embed = discord.Embed(title=f"<:mdiarchive:1311542586745294868> Archived Message On {discord.utils.format_dt(dt.now(), 'f')} ({discord.utils.format_dt(dt.now(), 'R')})", description=f"{message.content}", color=discord.Colour.random())
     embed.add_field(name="\n", value=", ".join(reactionlist), inline=False)
     embed.add_field(name="<:mdiaccount:1311490376091045989> Author", value=f"<@{message.author.id}>", inline=True)
