@@ -24,4 +24,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # The following command will execute "python ./main.py".
 RUN adduser archiver
 USER archiver
-CMD [ "bash", "/start.sh --private" ]
+CMD [ "bash", "start.sh --private" ]
