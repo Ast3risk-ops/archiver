@@ -8,7 +8,17 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report! Please be as desriptive as possible with your issue.
+        Thanks for taking the time to fill out this bug report! Please be as descriptive as possible with your issue.
+  - type: dropdown
+    id: issue-with
+    attributes:
+      label: What are you having an issue with?
+      multiple: false
+      options:
+        - Using the bot
+        - Hosting the bot
+        - Website
+      default: 0
   - type: textarea
     id: what-supposed-happened
     attributes:
@@ -32,5 +42,5 @@ body:
     id: logs
     attributes:
       label: Relevant log output (if applicable)
-      description: Please copy and paste the content of the error embed, error screen, or terminal output (will be auto-formatted into code).
+      description: Please copy and paste the contents of the error embed, error screen, or terminal output (will be auto-formatted into code).
       render: shell

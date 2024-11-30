@@ -21,6 +21,7 @@ export default defineAppConfig({
       showTitle: true,
       border: true,
       darkModeToggle: true,
+      showTitleInMobile: false,
       logo: {
         light: '/logo.svg',
         dark: '/logo-dark.svg',
@@ -58,6 +59,7 @@ export default defineAppConfig({
     },
     toc: {
       enable: true,
+      enableInMobile: false,
       title: 'On This Page',
       links: [{
         title: 'Invite the bot',
@@ -65,15 +67,17 @@ export default defineAppConfig({
         to: '#',
         target: '_blank',
       }, {
-        title: 'Create Issues',
-        icon: 'lucide:circle-dot',
-        to: 'https://github.com/Ast3risk-ops/archiver/issues/new',
+        title: 'Report a bug',
+        icon: 'lucide:bug',
+        to: 'https://github.com/Ast3risk-ops/archiver/issues/new?assignees=Ast3risk-ops&labels=bug&projects=&template=bug.yml&title=%F0%9F%90%9B+',
         target: '_blank',
+        rel: 'noopener noreferrer',
       }],
     },
     search: {
       enable: true,
       inAside: false,
+      style: 'input',
       placeholder: 'Search',
       placeholderDetailed: 'Type to start searching'
     }
