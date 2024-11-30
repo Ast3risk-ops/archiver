@@ -1,5 +1,5 @@
 <div align="center">
-<img src="/archiver-hero.png">
+<img src="/www/public/hero.png">
 
 
 -------
