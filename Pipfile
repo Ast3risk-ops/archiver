@@ -10,8 +10,5 @@ ezcord = "*"
 
 [dev-packages]
 
-[requires]
-python_version = "3.12"
-
 [scripts]
 bot = "python main.py"
