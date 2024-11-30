@@ -31,7 +31,14 @@ export default defineAppConfig({
         icon: 'lucide:github',
         to: 'https://github.com/ast3risk-ops/archiver',
         target: '_blank',
-      }],
+        rel: 'noopener noreferrer',
+      },
+      {
+        icon: 'radix-icons:discord-logo',
+        to: 'https://discord.gg/d3a9dW9KHN',
+        target: '_blank',
+      },
+      ],
     },
     aside: {
       useLevel: true,
@@ -55,7 +62,13 @@ export default defineAppConfig({
         icon: 'lucide:github',
         to: 'https://github.com/ast3risk-ops/archiver',
         target: '_blank',
-      }],
+      },
+      {
+        icon: 'radix-icons:discord-logo',
+        to: 'https://discord.gg/d3a9dW9KHN',
+        target: '_blank',
+      },
+      ],
     },
     toc: {
       enable: true,

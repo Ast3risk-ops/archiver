@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify-json/radix-icons": "^1.2.1",
     "@iconify-json/simple-icons": "^1.2.13",
     "nuxt": "^3.14.1592",
     "shadcn-docs-nuxt": "^0.8.0",

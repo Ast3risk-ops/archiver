@@ -9,15 +9,15 @@ This website is still a work in progress!
 
 ::hero-alt
 ---
-announcement:
-  title: 'Release!'
-  icon: '🎉'
-  to: https://github.com/ast3risk-ops/archiver/releases/latest
-  target: _blank
 actions:
-  - name: Get Started
+  - name: Documentation
     rightIcon: lucide:arrow-right
     to: /setup
+  - name: Install the app
+    rightIcon: lucide:arrow-up-right
+    variant: outline
+    to: https://discord.com/oauth2/authorize?client_id=1311438512045949029
+    target: _blank
 ---
 
 #title
