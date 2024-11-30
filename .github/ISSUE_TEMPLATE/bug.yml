@@ -1,0 +1,36 @@
+name: Bug Report
+description: File a bug report.
+title: "🐛 "
+labels: ["bug"]
+assignees:
+  - Ast3risk-ops
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report! Please be as desriptive as possible with your issue.
+  - type: textarea
+    id: what-supposed-happened
+    attributes:
+      label: What was supposed to happen?
+      description: What were you trying to do?
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What did happen?
+      description: Describe in steps how you would reproduce the issue.
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. Type ... in the ... box
+        ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output (if applicable)
+      description: Please copy and paste the content of the error embed, error screen, or terminal output (will be auto-formatted into code).
+      render: shell
