@@ -19,6 +19,8 @@ body:
         - Hosting the bot
         - Website
       default: 0
+    validations:
+      required: true
   - type: textarea
     id: what-supposed-happened
     attributes:
