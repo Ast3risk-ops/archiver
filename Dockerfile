@@ -16,6 +16,7 @@ COPY main_emoji.py /
 COPY requirements.txt /
 COPY context.png /
 COPY start.sh /
+RUN chmod +x start.sh
 RUN pip install --no-cache-dir -r requirements.txt
 
 # We need to define the command to launch when we are going to run the image.
