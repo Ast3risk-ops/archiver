@@ -75,11 +75,18 @@ export default defineAppConfig({
       enableInMobile: false,
       title: 'On This Page',
       links: [{
-        title: 'Invite the bot',
+        title: 'Install the app',
         icon: 'simple-icons:discord',
-        to: '#',
+        to: 'https://discord.com/oauth2/authorize?client_id=1311438512045949029',
         target: '_blank',
-      }, {
+      },
+        {
+          title: 'Support server',
+          icon: 'lucide:message-circle-question',
+          to: 'https://discord.gg/d3a9dW9KHN',
+          target: '_blank',
+      },
+      {
         title: 'Report a bug',
         icon: 'lucide:bug',
         to: 'https://github.com/Ast3risk-ops/archiver/issues/new?assignees=Ast3risk-ops&labels=bug&projects=&template=bug.yml&title=%F0%9F%90%9B+',

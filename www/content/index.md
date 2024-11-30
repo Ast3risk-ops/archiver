@@ -1,6 +1,7 @@
 ---
 title: Home
 navigation: false
+toc: false
 ---
 
 ::alert{type=warning icon=lucide:triangle-alert}
@@ -12,11 +13,19 @@ This website is still a work in progress!
 actions:
   - name: Documentation
     rightIcon: lucide:arrow-right
+    leftIcon: lucide:book-open-text
     to: /setup
   - name: Install the app
     rightIcon: lucide:arrow-up-right
+    leftIcon: simple-icons:discord
     variant: outline
     to: https://discord.com/oauth2/authorize?client_id=1311438512045949029
+    target: _blank
+  - name: Support
+    leftIcon: lucide:message-circle-question
+    rightIcon: lucide:arrow-up-right
+    variant: outline
+    to: https://discord.gg/d3a9dW9KHN
     target: _blank
 ---
 
@@ -34,6 +43,7 @@ With Archiver, you can keep a record of whatever messages you want, safely in yo
   ---
   title: Simple
   icon: lucide:arrow-right-to-line
+  to: /setup/quickstart#start-archiving
   ---
   Just right click and save.
   ::
@@ -41,6 +51,7 @@ With Archiver, you can keep a record of whatever messages you want, safely in yo
   ---
   title: Robust
   icon: lucide:bolt
+  to: /setup/quickstart#start-archiving
   ---
   Save any message, as long as you can see it.
   ::
@@ -48,6 +59,7 @@ With Archiver, you can keep a record of whatever messages you want, safely in yo
   ---
   title: Informative
   icon: lucide:badge-info
+  to: /usage/archive-management
   ---
   View information about any archived message, even if it's been deleted.
   ::
@@ -55,7 +67,29 @@ With Archiver, you can keep a record of whatever messages you want, safely in yo
   ---
   title: Private
   icon: lucide:eye-off
+  to: /terms/privacy-policy
   ---
-  Nobody can see your archive but yourself and Discord.
+  Your archive belongs to you and you alone.
+  ::
+::
+
+## Team
+
+::team-card-group
+  ::team-card
+  ---
+  avatar: https://github.com/Ast3risk-ops.png
+  name: Asterisk
+  title: Lead Developer
+  links:
+    - icon: lucide:earth
+      to: https://asterisk.lol
+    - icon: ri:mastodon-line
+      to: https://social.linux.pizza/@asterisk
+    - icon: lucide:github
+      to: https://github.com/Ast3risk-ops
+    - icon: radix-icons:discord-logo
+      to: https://discord.com/users/789561823863111742
+  ---
   ::
 ::
