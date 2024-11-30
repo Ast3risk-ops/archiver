@@ -3,6 +3,7 @@
 # In our example, we want import the python image.
 # So we write 'python' for the image name and 'latest' for the version.
 FROM docker.io/python:latest
+LABEL org.opencontainers.image.description Latest image for the bot built on every commit.
 
 
 # In order to launch our python code, we must import it into our image.
