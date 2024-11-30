@@ -18,11 +18,12 @@ class TagSet(discord.ui.Modal):
         super().__init__(title="Message Tag(s)")
         # Modal for tag input
         self.add_item(discord.ui.InputText(label="", required=False))
+        return
 class ColourModal(discord.ui.Modal):
     def __init__(self):
         super().__init__(title="Customizer")
 
-        self.add_item(discord.ui.InputText(label="Hex Colour Code", placeholder="#FF5733", required=True))
+        self.add_item(discord.ui.InputText(label="Colour (hex code)", placeholder="#FF5733", required=True))
 
     async def callback(self, interaction: discord.Interaction):
         color_input = self.children[0].value
@@ -38,6 +39,7 @@ class ColourModal(discord.ui.Modal):
 
         # Edit the original message with the updated embed
         await interaction.response.edit_message(embed=embed)
+        return
 class DeleteBookmark(discord.ui.View):
     @discord.ui.button(label="", style=discord.ButtonStyle.secondary, emoji="🗑️")
     async def button_callback(self, button, interaction):
