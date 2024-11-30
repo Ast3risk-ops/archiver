@@ -1,0 +1,8 @@
+version: '3'
+services:
+  archiver:
+    image: ghcr.io/ast3risk-ops/archiver:latest
+    restart: unless-stopped
+    environment:
+      - WEBHOOK_URL=webhookurlhere
+      - TOKEN=tokenhere

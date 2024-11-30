@@ -1,0 +1,10 @@
+www/
+.env
+.env.example
+.gitignore
+CODEOWNERS
+.github/
+LICENSE
+Pipfile
+Pipfile.lock
+README.md
