@@ -11,6 +11,22 @@ export default defineNuxtConfig({
       ]
     },
   },
+  content: {
+    highlight: {
+      langs: [
+        'c',
+        'cpp',
+        'java',
+        'py',
+        'toml',
+        'bash',
+        'dockerfile',
+        'yaml',
+        'yml',
+        'python',
+      ]
+    },
+  },
   extends: ['shadcn-docs-nuxt'],
   compatibilityDate: '2024-07-06',
 });

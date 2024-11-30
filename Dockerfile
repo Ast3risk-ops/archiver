@@ -12,8 +12,10 @@ LABEL org.opencontainers.image.description Latest image for the Archiver bot bui
 # The second parameter '/' is the path where to put the file on the image.
 # Here we put the file at the image root folder.
 COPY main.py /
+COPY main_emoji.py /
 COPY requirements.txt /
 COPY context.png /
+COPY start.sh /
 RUN pip install --no-cache-dir -r requirements.txt
 
 # We need to define the command to launch when we are going to run the image.
@@ -21,4 +23,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # The following command will execute "python ./main.py".
 RUN adduser archiver
 USER archiver
-CMD [ "python3", "./main.py" ]
+CMD [ "bash", "./start.sh --private" ]

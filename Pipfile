@@ -11,4 +11,5 @@ ezcord = "*"
 [dev-packages]
 
 [scripts]
-bot = "python main.py"
+public = "python main.py"
+generic = "python main_emoji.py"

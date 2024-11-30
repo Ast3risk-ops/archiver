@@ -45,15 +45,15 @@ With Archiver, you can keep a record of whatever messages you want, safely in yo
   icon: lucide:arrow-right-to-line
   to: /setup/quickstart#start-archiving
   ---
-  Just right click and save.
+  Just right click and save any message.
   ::
   ::card
   ---
-  title: Robust
-  icon: lucide:bolt
-  to: /setup/quickstart#start-archiving
+  title: Hostable
+  icon: lucide:server
+  to: /selfhost/
   ---
-  Save any message, as long as you can see it.
+  Set up and run the bot yourself with ease.
   ::
   ::card
   ---
