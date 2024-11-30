@@ -4,6 +4,10 @@
 # So we write 'python' for the image name and 'latest' for the version.
 FROM docker.io/python:latest
 LABEL org.opencontainers.image.description Latest image for the Archiver bot built on every commit. See https://archiver.asterisk.lol/selfhost/docker for a setup guide.
+WORKDIR /archiver
+COPY . /archiver
+RUN chmod +x start.sh
+RUN chown -R archiver:archiver /archiver
 RUN useradd -m archiver
 USER archiver
 
@@ -12,11 +16,6 @@ USER archiver
 # The first parameter 'main.py' is the name of the file on the host.
 # The second parameter '/' is the path where to put the file on the image.
 # Here we put the file at the image root folder.
-WORKDIR /archiver
-COPY . /archiver
-RUN chmod +x start.sh
-RUN chown -R archiver:archiver /archiver
-USER archiver
 RUN pip install --no-cache-dir -r requirements.txt
 CMD ["./start.sh", "--private"]
 
