@@ -50,7 +50,7 @@ With Archiver, you can keep a record of whatever messages you want, safely in yo
   ::card
   ---
   title: Hostable
-  icon: lucide:server
+  icon: lucide:sailboat
   to: /selfhost/
   ---
   Set up and run the bot yourself with ease.

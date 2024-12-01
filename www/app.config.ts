@@ -69,7 +69,7 @@ export default defineAppConfig({
         target: '_blank',
         },
       {
-        icon: 'lucide:scroll-text',
+        icon: 'lucide:asterisk',
         to: '/terms',
         title: 'Terms of Service',
         },
