@@ -22,6 +22,7 @@ actions:
     variant: outline
     to: https://discord.gg/d3a9dW9KHN
     target: _blank
+mobileRight: top
 ---
 
 #title
@@ -29,9 +30,12 @@ Archive Discord messages just like emails
 
 #description
 Never lose another message again.
+
+#right
+<video src="/assets/vid/hero.mp4" controls autoplay loop muted></video>
 ::
 
-With Archiver, you can keep a record of whatever messages you want, safely in your DMs.
+:h3[With Archiver, you can keep a record of whatever messages you want, safely in your DMs.]
 
 ::card-group
   ::card
