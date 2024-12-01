@@ -18,7 +18,7 @@ on:
     types: [ published ]
 
 jobs:
-  docker_publish:
+  build_and_publish:
     runs-on: "ubuntu-latest"
     permissions:
       contents: read
