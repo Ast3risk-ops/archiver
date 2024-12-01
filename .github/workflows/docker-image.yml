@@ -7,7 +7,7 @@ on:
       - 'main_emoji.py'
       - 'requirements.txt'
       - 'Pipfile'
-      - 'Pipfile.lock'
+      - 'requirements.txt'
       - 'Dockerfile'
       - 'docker-compose.yml'
       - '.dockerignore'
