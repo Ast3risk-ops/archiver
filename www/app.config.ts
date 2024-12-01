@@ -57,7 +57,7 @@ export default defineAppConfig({
       },
     },
     footer: {
-      credits: 'Copyright © Asterisk 2024',
+      credits: 'Copyright © 2024 Archiver Developers',
       links: [{
         icon: 'lucide:github',
         to: 'https://github.com/ast3risk-ops/archiver',
@@ -67,7 +67,17 @@ export default defineAppConfig({
         icon: 'radix-icons:discord-logo',
         to: 'https://discord.gg/d3a9dW9KHN',
         target: '_blank',
-      },
+        },
+      {
+        icon: 'lucide:scroll-text',
+        to: '/terms',
+        title: 'Terms of Service',
+        },
+        {
+        icon: 'lucide:file-lock',
+        to: '/terms/privacy-policy',
+        title: 'Privacy Policy',
+      }
       ],
     },
     toc: {
