@@ -135,6 +135,12 @@ async def bookmark_tag(
     await ctx.user.send(embed=embed, view=DeleteBookmark())
     for i in message.attachments:
         await ctx.user.send(i)
+    if message.stickers:
+        stickers = []
+        for i in message.stickers:
+            format = f'[{i.name}]({i.url})'
+            stickers.append(format)
+            await ctx.user.send(' '.join(stickers))
     if message.embeds:
         for i in message.embeds:
             await ctx.user.send(embed=i)
