@@ -3,11 +3,6 @@ title: Home
 navigation: false
 toc: false
 ---
-
-::alert{type=warning icon=lucide:triangle-alert}
-This website is still a work in progress!
-::
-
 ::hero-alt
 ---
 actions:
