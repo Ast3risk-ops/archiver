@@ -58,16 +58,7 @@ export default defineAppConfig({
     },
     footer: {
       credits: 'Copyright © 2024 Archiver Developers',
-      links: [{
-        icon: 'lucide:github',
-        to: 'https://github.com/ast3risk-ops/archiver',
-        target: '_blank',
-      },
-      {
-        icon: 'radix-icons:discord-logo',
-        to: 'https://discord.gg/d3a9dW9KHN',
-        target: '_blank',
-        },
+      links: [
       {
         icon: 'lucide:asterisk',
         to: '/terms',
@@ -77,7 +68,17 @@ export default defineAppConfig({
         icon: 'lucide:file-lock',
         to: '/terms/privacy-policy',
         title: 'Privacy Policy',
-      }
+      },
+      {
+        icon: 'lucide:github',
+        to: 'https://github.com/ast3risk-ops/archiver',
+        target: '_blank',
+      },
+      {
+        icon: 'radix-icons:discord-logo',
+        to: 'https://discord.gg/d3a9dW9KHN',
+        target: '_blank',
+        },
       ],
     },
     toc: {
