@@ -69,7 +69,7 @@ With Archiver, you can keep a record of whatever messages you want, safely in yo
   icon: lucide:eye-off
   to: /terms/privacy-policy
   ---
-  Your archive belongs to you and you alone.
+  Your archive belongs to you and you alone. No additional permissions are required by the user app.
   ::
 ::
 
