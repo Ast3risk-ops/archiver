@@ -130,8 +130,8 @@ async def bookmark_tag(
         embed.add_field(name="<:mdicardtext:1311825458480021596> Embeds", value=f"{numembeds}", inline=True)
     embed.add_field(name="<:mdicalendar:1311544097240121384> Send Date", value=f"{discord.utils.format_dt(message.created_at, 'F')}", inline=True)
     embed.add_field(name="<:mditag:1311505882047189012> Tags", value=f"{modal.children[0].value}", inline=True)
-
-    embed.set_thumbnail(url=f"{message.author.avatar.url}")
+    if message.author.avatar:
+        embed.set_thumbnail(url=f"{message.author.avatar.url}")
     await ctx.user.send(embed=embed, view=DeleteBookmark())
     for i in message.attachments:
         await ctx.user.send(i)
