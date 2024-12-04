@@ -5,7 +5,7 @@ labels: ["feature"]
 assignees:
   - Ast3risk-ops
 body:
-  - type: markdown
+  type: markdown
   attributes:
     value: |
       Want to see a new feature? Ask here!
