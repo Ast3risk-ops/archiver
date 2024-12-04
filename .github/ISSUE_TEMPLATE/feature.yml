@@ -19,5 +19,6 @@ body:
     required: true
 - type: checkboxes
   id: help
-  options:
-    - label: Are you able to add this feature?
+  attributes:
+    options:
+      - label: Are you able to add this feature?
