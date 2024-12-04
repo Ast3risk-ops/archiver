@@ -20,5 +20,6 @@ body:
 - type: checkboxes
   id: help
   attributes:
+    label: Contribute
     options:
       - label: Are you able to add this feature?
