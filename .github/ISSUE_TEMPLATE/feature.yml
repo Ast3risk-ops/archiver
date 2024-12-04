@@ -1,7 +1,8 @@
 name: 🚀 Feature Request
 description: Request a new feature for the bot.
 title: "🚀 feat: "
-labels: ["feature"]
+labels:
+  - feature
 assignees:
   - Ast3risk-ops
 body:
@@ -12,8 +13,7 @@ body:
       description: What do you want to be added?
     validations:
       required: true
-   - type: checkboxes
-     id: help
-     options:
-       - label: Are you able to add this feature?
-       
+  - type: checkboxes
+    id: help
+    options:
+      - label: Are you able to add this feature?
