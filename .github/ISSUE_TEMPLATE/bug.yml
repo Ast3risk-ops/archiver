@@ -1,6 +1,6 @@
 name: 🐛 Bug Report
 description: Report a bug with the bot or website.
-title: "🐛 "
+title: "🐛 bug: "
 labels: ["bug"]
 assignees:
   - Ast3risk-ops
