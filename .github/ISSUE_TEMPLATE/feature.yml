@@ -5,10 +5,6 @@ labels: ["feature"]
 assignees:
   - Ast3risk-ops
 body:
-  type: markdown
-  attributes:
-    value: |
-      Want to see a new feature? Ask here!
   - type: textarea
     id: request
     attributes:
