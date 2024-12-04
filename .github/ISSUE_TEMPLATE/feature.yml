@@ -11,13 +11,13 @@ body:
     value: |
       Want a new feature? Request it here!
 - type: checkboxes
-    id: request
-    attributes:
-      label: Describe your feature request
-      description: What do you want to be added?
-    validations:
-      required: true
-  - type: checkboxes
-    id: help
-    options:
-      - label: Are you able to add this feature?
+  id: request
+  attributes:
+    label: Describe your feature request
+    description: What do you want to be added?
+  validations:
+    required: true
+- type: checkboxes
+  id: help
+  options:
+    - label: Are you able to add this feature?
