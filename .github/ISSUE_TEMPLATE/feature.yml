@@ -10,7 +10,7 @@ body:
   attributes:
     value: |
       Want a new feature? Request it here!
-  - type: checkboxes
+- type: checkboxes
     id: request
     attributes:
       label: Describe your feature request
