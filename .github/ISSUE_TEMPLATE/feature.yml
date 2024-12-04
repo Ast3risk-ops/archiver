@@ -6,7 +6,11 @@ labels:
 assignees:
   - Ast3risk-ops
 body:
-  - type: textarea
+- type: markdown
+  attributes:
+    value: |
+      Want a new feature? Request it here!
+  - type: checkboxes
     id: request
     attributes:
       label: Describe your feature request
