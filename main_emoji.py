@@ -14,7 +14,7 @@ intents = discord.Intents.default()
 bot = ezcord.Bot(language="en", error_webhook_url=webhookurl, intents=intents, ready_event=None)
 @bot.event
 async def on_ready():
-    activity = discord.CustomActivity(emoji="🗃️", name="Archiving messages...")
+    activity = discord.CustomActivity(name="🗃️ Archiving your messages")
     await bot.change_presence(status=discord.Status.online, activity=activity)
     bot.ready(
         style=ezcord.ReadyEvent.default,
