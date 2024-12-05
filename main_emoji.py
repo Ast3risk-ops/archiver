@@ -129,7 +129,8 @@ async def bookmark_tag(
         numembeds = len(message.embeds) # Number of embeds
         embed.add_field(name="🔲 Embeds", value=f"{numembeds}", inline=True)
     embed.add_field(name="📅 Send Date", value=f"{discord.utils.format_dt(message.created_at, 'F')}", inline=True)
-    embed.add_field(name="🔖 Tags", value=f"{modal.children[0].value}", inline=True)
+    if modal.children[0].value:
+        embed.add_field(name="🔖 Tags", value=f"{modal.children[0].value}", inline=True)
     if message.author.avatar:
         embed.set_thumbnail(url=f"{message.author.avatar.url}")
     await ctx.user.send(embed=embed, view=DeleteBookmark())
@@ -144,7 +145,6 @@ async def bookmark_tag(
     if message.embeds:
         for i in message.embeds:
             await ctx.user.send(embed=i)
-
 
 if __name__ == "__main__":
     bot.run(str(os.getenv('TOKEN'))) # run the bot with the token
