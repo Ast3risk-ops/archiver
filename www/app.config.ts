@@ -2,7 +2,7 @@ export default defineAppConfig({
   shadcnDocs: {
     site: {
       name: 'Archiver',
-      description: 'Never lose another Discord message again.',
+      description: 'Never lose a Discord message again.',
       ogImage: '/hero.png',
       ogImageComponent: 'ShadcnDocs',
       umami: {
