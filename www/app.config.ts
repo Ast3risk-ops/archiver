@@ -87,7 +87,7 @@ export default defineAppConfig({
       title: 'On This Page',
       links: [{
         title: 'Install the user app',
-        icon: 'simple-icons:discord',
+        icon: 'radix-icons:discord-logo',
         to: 'https://discord.com/oauth2/authorize?client_id=1311438512045949029',
         target: '_blank',
       },
