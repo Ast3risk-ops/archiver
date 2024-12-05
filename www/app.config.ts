@@ -86,7 +86,7 @@ export default defineAppConfig({
       enableInMobile: false,
       title: 'On This Page',
       links: [{
-        title: 'Install the app',
+        title: 'Install the user app',
         icon: 'simple-icons:discord',
         to: 'https://discord.com/oauth2/authorize?client_id=1311438512045949029',
         target: '_blank',

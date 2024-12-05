@@ -11,7 +11,14 @@ embed = None
 
 webhookurl = str(os.getenv("WEBHOOK_URL"))
 intents = discord.Intents.default()
-bot = ezcord.Bot(language="en", error_webhook_url=webhookurl, intents=intents)
+bot = ezcord.Bot(language="en", error_webhook_url=webhookurl, intents=intents, ready_event=None)
+@bot.event
+async def on_ready():
+    activity = discord.CustomActivity(emoji="🗃️", name="Archiving messages...")
+    await bot.change_presence(status=discord.Status.online, activity=activity)
+    bot.ready(
+        style=ezcord.ReadyEvent.default,
+    )
 
 class TagSet(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
@@ -125,6 +132,10 @@ async def bookmark_tag(
     embed.add_field(name="<:mdiaccount:1311490376091045989> Author", value=f"<@{message.author.id}>", inline=True)
     embed.add_field(name="<:mdilinkvariant:1311490590747267082> Link", value=f"{message.jump_url}", inline=True)
     embed.add_field(name="<:mdicodetags:1311506780332752977> ID", value=f"`{message.id}`", inline=True)
+    if message.guild:
+        embed.add_field(name="<:mdichesscastle:1314056466516283413> Guild", value=f"`{message.guild.id}`", inline=True)
+    else:
+        embed.add_field(name="<:mdichesscastle:1314056466516283413> Guild", value=f"DM", inline=True)
     if message.embeds:
         numembeds = len(message.embeds) # Number of embeds
         embed.add_field(name="<:mdicardtext:1311825458480021596> Embeds", value=f"{numembeds}", inline=True)
