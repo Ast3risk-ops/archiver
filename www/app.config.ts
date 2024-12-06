@@ -58,7 +58,7 @@ export default defineAppConfig({
       },
     },
     footer: {
-      credits: 'Copyright © 2024 Archiver Developers',
+      credits: 'Made with ❤️ by the Archiver team | Site under :icon{name="lucide:creative-commons"} BY-SA 4.0',
       links: [
       {
         icon: 'lucide:asterisk',
