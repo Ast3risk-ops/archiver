@@ -1,5 +1,5 @@
 <div align="center">
-<img src="/www/public/hero.png">
+<img src="/www/public/hero-title-transparent.png">
 
 
 -------
