@@ -5,6 +5,7 @@ export default defineAppConfig({
       description: 'Never lose a Discord message again.',
       ogImage: '/hero.png',
       ogImageComponent: 'ShadcnDocs',
+      ogImageColor: 'dark',
       umami: {
         enable: true,
         src: 'https://t.asterisk.lol/script.js',
