@@ -2,6 +2,7 @@
   <picture>
      <source media="(prefers-color-scheme: dark)" srcset="www/public/hero-title-transparent.png">
      <source media="(prefers-color-scheme: light)" srcset="www/public/hero-title-transparent-dark.png">
+     <img alt="Archiver logo" src="www/public/hero-title-transparent.png">
   </picture>
 
 
