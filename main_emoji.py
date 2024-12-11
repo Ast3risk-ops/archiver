@@ -132,6 +132,13 @@ async def bookmark_tag(
         embed = discord.Embed(title=f"🗃️ Archived Message On {discord.utils.format_dt(dt.now(), 'f')} ({discord.utils.format_dt(dt.now(), 'R')})", description=f"-------\n\n{message.content}\n\n--------", color=discord.Colour.random())
     else:
         embed = discord.Embed(title=f"🗃️ Archived Message On {discord.utils.format_dt(dt.now(), 'f')} ({discord.utils.format_dt(dt.now(), 'R')})", color=discord.Colour.random())
+    if message.poll:
+        embed.description = f"\n**📊 Poll**\n-------\n❓ {message.poll.question.text}\n\n"
+        answertext = []
+        for i in message.poll.answers:
+            answerf = f"{i.id}. [{i.emoji}] {i.text} \n"
+            answertext.append(answerf)
+        embed.add_field(name="", value="".join(answertext), inline=False)
     embed.add_field(name="\n\n", value=", ".join(reactionlist), inline=False)
     embed.add_field(name="👤 Author", value=f"<@{message.author.id}>", inline=True)
     embed.add_field(name="🔗 Link", value=f"{message.jump_url}", inline=True)
@@ -143,6 +150,7 @@ async def bookmark_tag(
     if message.embeds:
         numembeds = len(message.embeds) # Number of embeds
         embed.add_field(name="🔲 Embeds", value=f"{numembeds}", inline=True)
+
     embed.add_field(name="📅 Send Date", value=f"{discord.utils.format_dt(message.created_at, 'F')}", inline=True)
     if modal.children[0].value:
         embed.add_field(name="🔖 Tags", value=f"{modal.children[0].value}", inline=True)
