@@ -10,6 +10,12 @@ actions:
     rightIcon: lucide:arrow-right
     leftIcon: lucide:book-open-text
     to: /setup
+  - name: Source Code
+    leftIcon: lucide:github
+    rightIcon: lucide:arrow-up-right
+    to: https://github.com/ast3risk-ops/archiver
+    target: _blank
+    rel: noopener noreferrer
   - name: Install the user app
     rightIcon: lucide:arrow-up-right
     leftIcon: simple-icons:discord
