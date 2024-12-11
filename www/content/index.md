@@ -58,7 +58,7 @@ Never lose another message again.
   ---
   title: Informative
   icon: lucide:badge-info
-  to: /usage/archive-management
+  to: /usage/features
   ---
   View information about any archived message, even if it's been deleted.
   ::
