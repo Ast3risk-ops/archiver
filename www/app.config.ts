@@ -44,7 +44,7 @@ export default defineAppConfig({
     banner: {
       enable: true,
       showClose: true,
-      content: ':smart-icon{name="⭐"} Star us on Github!',
+      content: '**:smart-icon{name="⭐"} Star us on Github!**',
       to: 'https://github.com/Ast3risk-ops/archiver',
       target: '_blank',
       rel: 'noopener noreferrer',
