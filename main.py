@@ -127,7 +127,10 @@ async def bookmark_tag(
         formatted_emoji = str(i.emoji)
         reactionlist.append(f"{count}x {formatted_emoji} ")
     global embed
-    embed = discord.Embed(title=f"<:mdiarchive:1311542586745294868> Archived Message On {discord.utils.format_dt(dt.now(), 'f')} ({discord.utils.format_dt(dt.now(), 'R')})", description=f"-------\n\n{message.content}\n\n--------", color=discord.Colour.random())
+    if message.content:
+        embed = discord.Embed(title=f"<:mdiarchive:1311542586745294868> Archived Message On {discord.utils.format_dt(dt.now(), 'f')} ({discord.utils.format_dt(dt.now(), 'R')})", description=f"-------\n\n{message.content}\n\n--------", color=discord.Colour.random())
+    else:
+        embed = discord.Embed(title=f"<:mdiarchive:1311542586745294868> Archived Message On {discord.utils.format_dt(dt.now(), 'f')} ({discord.utils.format_dt(dt.now(), 'R')})", color=discord.Colour.random())
     embed.add_field(name="\n\n", value=", ".join(reactionlist), inline=False)
     embed.add_field(name="<:mdiaccount:1311490376091045989> Author", value=f"<@{message.author.id}>", inline=True)
     embed.add_field(name="<:mdilinkvariant:1311490590747267082> Link", value=f"{message.jump_url}", inline=True)
