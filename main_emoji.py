@@ -157,7 +157,10 @@ async def bookmark_tag(
     embed.set_thumbnail(url=ezcord.utils.avatar(f"{message.author.id}"))
     await ctx.user.send(embed=embed, view=DeleteBookmark())
     for i in message.attachments:
-        await ctx.user.send(i)
+        path = f"./{i.filename}"
+        await i.save(path)
+        await ctx.user.send(file=discord.File(path))
+        os.remove(path)
     if message.stickers:
         stickers = []
         for i in message.stickers:
