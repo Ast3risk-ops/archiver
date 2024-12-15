@@ -49,6 +49,7 @@ Never lose another message again.
   title: Simple
   icon: lucide:arrow-right-to-line
   to: /setup/quickstart#start-archiving
+  showLinkIcon: false
   ---
   Just right click and save any message.
   ::
@@ -57,6 +58,7 @@ Never lose another message again.
   title: Hostable
   icon: lucide:sailboat
   to: /selfhost/
+  showLinkIcon: false
   ---
   Set up and run the bot yourself with ease.
   ::
@@ -65,6 +67,7 @@ Never lose another message again.
   title: Informative
   icon: lucide:badge-info
   to: /usage/features
+  showLinkIcon: false
   ---
   View information about any archived message, even if it's been deleted.
   ::
@@ -73,6 +76,7 @@ Never lose another message again.
   title: Private
   icon: lucide:eye-off
   to: /terms/privacy-policy
+  showLinkIcon: false
   ---
   Your archive belongs to you and you alone. No additional permissions are required by the user app.
   ::

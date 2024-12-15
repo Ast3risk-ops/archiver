@@ -14,7 +14,7 @@
     "@iconify-json/ri": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.15",
     "nuxt": "^3.14.1592",
-    "shadcn-docs-nuxt": "^0.8.5",
+    "shadcn-docs-nuxt": "^0.8.6",
     "sharp": "^0.33.5",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
