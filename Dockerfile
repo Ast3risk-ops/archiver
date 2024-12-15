@@ -1,4 +1,4 @@
-FROM docker.io/python:latest
+FROM docker.io/python:alpine
 LABEL org.opencontainers.image.description Latest image for the Archiver bot built on every commit. See https://archiver.asterisk.lol/selfhost/docker for a setup guide.
 WORKDIR /archiver
 COPY . /archiver
