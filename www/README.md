@@ -5,7 +5,7 @@ Powered by [Nuxt](https://nuxt.com) and [`shadcn-docs-nuxt`](https://shadcn-docs
 
 ## Contributing
 
-Install the packages:
+Install the packages with [Bun](https://bum.sh):
 
 ```
 bun i
