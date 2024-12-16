@@ -4,6 +4,8 @@
      <source media="(prefers-color-scheme: light)" srcset="www/public/hero-title-transparent-dark.png">
      <img alt="Archiver logo" src="www/public/hero-title-transparent.png">
   </picture>
+  
+  <i>Never lose another message again.</i>
 
 
 -------
