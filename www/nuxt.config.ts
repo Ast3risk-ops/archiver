@@ -27,6 +27,14 @@ export default defineNuxtConfig({
       ]
     },
   },
+  nitro: {
+    prerender: {
+      // Pre-render the homepage
+      routes: ['/', '/setup/quickstart'],
+      // Then crawl all the links on the page
+      crawlLinks: true
+    }
+  },
   extends: ['shadcn-docs-nuxt'],
   compatibilityDate: '2024-07-06',
 });
