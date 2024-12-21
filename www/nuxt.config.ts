@@ -35,6 +35,9 @@ export default defineNuxtConfig({
       crawlLinks: true
     }
   },
+  icon: {
+    serverBundle: 'local',
+  },
   extends: ['shadcn-docs-nuxt'],
   compatibilityDate: '2024-07-06',
 });
