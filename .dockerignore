@@ -1,6 +1,9 @@
 www/
 .env
 .env.example
+docker-compose-example.yml
+start.sh
+Dockerfile
 .gitignore
 CODEOWNERS
 .github/
