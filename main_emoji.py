@@ -61,7 +61,7 @@ class DeleteBookmark(discord.ui.View):
     @discord.ui.button(label="", style=discord.ButtonStyle.secondary, emoji="⬇️")
     async def button2_callback(self, button, interaction):
         for i in interaction.message.embeds:
-            i.set_footer(text="Go back to the original message to view attachments and embeds.")
+            i.set_footer(text="ℹ️ Go back to the original message to view attachments and embeds.")
             await interaction.message.reply(embed=i, view=DeleteBookmark())
         for i in interaction.message.attachments:
             await interaction.message.reply(i)
