@@ -1,5 +1,6 @@
 FROM docker.io/python:alpine
-LABEL org.opencontainers.image.description "Latest image for the Archiver bot built on every commit. See https://archiver.asterisk.lol/selfhost/docker for a setup guide."
+LABEL org.opencontainers.image.description="Latest image for the Archiver bot built on every commit. See https://archiver.asterisk.lol/selfhost/docker for a setup guide."
+LABEL org.opencontainers.image.licenses=AGPL-3.0-or-later
 WORKDIR /archiver
 COPY . /archiver
 RUN adduser -D archiver
