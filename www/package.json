@@ -7,9 +7,11 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "optimize": "jampack --nocache ./dist",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@divriots/jampack": "^0.32.0",
     "@iconify-json/radix-icons": "^1.2.1",
     "@iconify-json/ri": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.15",
