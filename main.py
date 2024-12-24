@@ -139,7 +139,7 @@ async def bookmark_tag(
             answertext.append(answerf)
         embed.add_field(name="", value="".join(answertext), inline=False)
     embed.add_field(name="\n\n", value=", ".join(reactionlist), inline=False)
-    embed.add_field(name="<:mdiaccount:1311490376091045989> Author", value=f"<@{message.author.id}>", inline=True)
+    embed.add_field(name="<:mdiaccount:1311490376091045989> Author", value=f"`{message.author.name}` (<@{message.author.id}>)", inline=True)
     embed.add_field(name="<:mdilinkvariant:1311490590747267082> Link", value=f"{message.jump_url}", inline=True)
     embed.add_field(name="<:mdicodetags:1311506780332752977> ID", value=f"`{message.id}`", inline=True)
     if message.guild:
