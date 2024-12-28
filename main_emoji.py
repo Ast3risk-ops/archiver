@@ -27,7 +27,8 @@ class TagSet(discord.ui.Modal):
         super().__init__(title="Message Tag(s)")
         # Modal for tag input
         self.add_item(discord.ui.InputText(label="", required=False))
-        return
+    async def callback(self, interaction: discord.Interaction):
+        await interaction.response.defer()
 class ColourModal(discord.ui.Modal):
     def __init__(self):
         super().__init__(title="Customizer")
@@ -40,7 +41,6 @@ class ColourModal(discord.ui.Modal):
         # Validate the color input
         if not color_input.startswith("#") or len(color_input) != 7:
             await interaction.response.send_message("Please enter a valid hex code (e.g., `#FF5733`).", ephemeral=True)
-            return
 
         # Update the global embed color
         global embed
@@ -54,25 +54,21 @@ class DeleteBookmark(discord.ui.View):
         super().__init__(timeout=None)
     @discord.ui.button(label="", custom_id="delete", style=discord.ButtonStyle.secondary, emoji="🗑️")
     async def button_callback(self, button, interaction):
+        await interaction.response.defer()
         self.disable_all_items()
         await interaction.message.delete()
-        return
     @discord.ui.button(label="", custom_id="pin", style=discord.ButtonStyle.secondary, emoji="📌")
     async def pin_callback(self, button, interaction):
         await interaction.message.pin()
-        return
+        await interaction.response.defer()
     @discord.ui.button(label="", custom_id="move_to_bottom", style=discord.ButtonStyle.secondary, emoji="⬇️")
     async def button2_callback(self, button, interaction):
         for i in interaction.message.embeds:
             i.set_footer(text="ℹ️ Go back to the original message to view attachments and embeds.")
-            await interaction.message.reply(embed=i, view=DeleteBookmark())
-        for i in interaction.message.attachments:
-            await interaction.message.reply(i)
-        return
+            await interaction.response.send_message(embed=i, view=DeleteBookmark())
     @discord.ui.button(label="", custom_id="customize", style=discord.ButtonStyle.secondary, emoji="🎨")
     async def customizer(self, button, interaction):
         await interaction.response.send_modal(ColourModal())
-        return
 class About(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
