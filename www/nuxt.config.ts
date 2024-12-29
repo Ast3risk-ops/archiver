@@ -27,14 +27,15 @@ export default defineNuxtConfig({
       ]
     },
   },
-  nitro: {
+/*  nitro: {
     prerender: {
       // Pre-render the homepage
-      routes: ['/', '/setup/quickstart'],
+      routes: ['/'],
       // Then crawl all the links on the page
       crawlLinks: true
     }
   },
+*/
   icon: {
     serverBundle: 'local',
   },
