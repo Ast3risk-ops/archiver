@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   site: {
-    url: 'https://archiver.asterisk.lol'
+    url: 'https://archiver.asterisk.lol',
+    name: 'Archiver'
   },
   app: {
     head: {
@@ -36,6 +37,7 @@ export default defineNuxtConfig({
     }
   },
 */
+  modules: ['@nuxtjs/robots', '@nuxtjs/sitemap'],
   icon: {
     serverBundle: 'local',
   },

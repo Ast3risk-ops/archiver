@@ -78,6 +78,10 @@ export default defineAppConfig({
         icon: 'lucide:file-lock',
         to: '/terms/privacy-policy',
         title: 'Privacy Policy',
+        },
+        {
+          icon: 'lucide:mail',
+          to: 'mailto:me@asterisk.lol?subject=Archiver'
       },
       {
         icon: 'lucide:github',
