@@ -23,7 +23,7 @@ async def on_ready():
 
 class TagSet(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
-        super().__init__(title="Message Tag(s)")
+        super().__init__(timeout=None, *args, **kwargs)
         # Modal for tag input
         self.add_item(discord.ui.InputText(label="", required=False))
     async def callback(self, interaction: discord.Interaction):
@@ -116,7 +116,7 @@ async def bookmark_tag(
     ctx,
     message: discord.Message
 ):
-    modal = TagSet()
+    modal = TagSet(title="Message Tag(s)")
     await ctx.send_modal(modal)
     await modal.wait() # Wait for the modal to be submitted before archiving
     reactionlist = [] # Empty list of reactions to use later
@@ -147,6 +147,9 @@ async def bookmark_tag(
     if message.embeds:
         numembeds = len(message.embeds) # Number of embeds
         embed.add_field(name="<:mdicardtext:1311825458480021596> Embeds", value=f"{numembeds}", inline=True)
+    if message.attachments:
+        numfiles = len(message.attachments)
+        embed.add_field(name="<:mdifiledownload:1322695880637284514> Attachments", value=f"{numfiles}", inline=True)
     embed.add_field(name="<:mdicalendar:1311544097240121384> Send Date", value=f"{discord.utils.format_dt(message.created_at, 'F')}", inline=True)
     if modal.children[0].value:
         embed.add_field(name="<:mditag:1311505882047189012> Tags", value=f"{modal.children[0].value}", inline=True)

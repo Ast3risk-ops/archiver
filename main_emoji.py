@@ -24,7 +24,7 @@ async def on_ready():
 
 class TagSet(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
-        super().__init__(title="Message Tag(s)")
+        super().__init__(timeout=None, *args, **kwargs)
         # Modal for tag input
         self.add_item(discord.ui.InputText(label="", required=False))
     async def callback(self, interaction: discord.Interaction):
@@ -48,7 +48,6 @@ class ColourModal(discord.ui.Modal):
 
         # Edit the original message with the updated embed
         await interaction.response.edit_message(embed=embed)
-        return
 class DeleteBookmark(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
@@ -72,7 +71,6 @@ class DeleteBookmark(discord.ui.View):
 class About(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
-
         SiteButton = discord.ui.Button(label='Website', style=discord.ButtonStyle.url, url='https://archiver.asterisk.lol')
         self.add_item(SiteButton)
         CodeButton = discord.ui.Button(label='Source Code', style=discord.ButtonStyle.url, url='https://github.com/Ast3risk-ops/archiver')
@@ -118,7 +116,7 @@ async def bookmark_tag(
     ctx,
     message: discord.Message
 ):
-    modal = TagSet()
+    modal = TagSet(title="Message Tag(s)")
     await ctx.send_modal(modal)
     await modal.wait() # Wait for the modal to be submitted before archiving
     reactionlist = [] # Empty list of reactions to use later
@@ -149,6 +147,9 @@ async def bookmark_tag(
     if message.embeds:
         numembeds = len(message.embeds) # Number of embeds
         embed.add_field(name="🔲 Embeds", value=f"{numembeds}", inline=True)
+    if message.attachments:
+        numfiles = len(message.attachments)
+        embed.add_field(name="📸 Attachments", value=f"{numfiles}", inline=True)
 
     embed.add_field(name="📅 Send Date", value=f"{discord.utils.format_dt(message.created_at, 'F')}", inline=True)
     if modal.children[0].value:
