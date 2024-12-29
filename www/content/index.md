@@ -111,7 +111,7 @@ See our [quickstart guide](/setup/quickstart) or run `/help`.
 Where can I see updates?
 
 #content
-They're posted in the support server and the original [Knockout thread](https://knockout.chat/thread/67393/).
+They're posted on the [changelog page](/changelog).
 ::
 
 <br>
@@ -121,7 +121,7 @@ They're posted in the support server and the original [Knockout thread](https://
 Why not use Forwards?
 
 #content
-Discord's builtin forwarding feature does allow you to store messages somewhere, but you won't get much information on them (only link and timestamp, not even author information). You also lose what little information is given if the message or server is deleted (since the link won't work). Forwards from DMs will have no link or timestamp. You also can't forward polls.
+Discord's built-in forwarding feature does allow you to store messages somewhere, but you won't get much information on them (only link and timestamp, not even author information). You also lose what little information is given if the message or server is deleted (since the link won't work). Forwards from DMs will have no link or timestamp. You also can't forward polls.
 ::
 
 <br>
