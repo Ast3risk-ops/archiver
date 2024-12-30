@@ -14,23 +14,11 @@ actions:
     rightIcon: lucide:arrow-right
     leftIcon: lucide:book-open-text
     to: /setup
-  - name: Source Code
-    leftIcon: lucide:github
-    rightIcon: lucide:arrow-up-right
-    to: https://github.com/ast3risk-ops/archiver
-    target: _blank
-    rel: noopener noreferrer
   - name: Install the user app
     rightIcon: lucide:arrow-up-right
     leftIcon: simple-icons:discord
     variant: outline
     to: https://discord.com/oauth2/authorize?client_id=1311438512045949029
-    target: _blank
-  - name: Support
-    leftIcon: lucide:message-circle-question
-    rightIcon: lucide:arrow-up-right
-    variant: outline
-    to: https://discord.gg/d3a9dW9KHN
     target: _blank
 ---
 
