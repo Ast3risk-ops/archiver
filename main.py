@@ -59,7 +59,6 @@ class DeleteBookmark(discord.ui.View):
         await interaction.response.defer()
         self.disable_all_items()
         await interaction.message.delete()
-        return
     @discord.ui.button(label="", custom_id="pin", style=discord.ButtonStyle.secondary, emoji="📌")
     async def pin_callback(self, button, interaction):
         await interaction.message.pin()
@@ -72,7 +71,6 @@ class DeleteBookmark(discord.ui.View):
     @discord.ui.button(label="", custom_id="customize", style=discord.ButtonStyle.secondary, emoji="🎨")
     async def customizer(self, button, interaction):
         await interaction.response.send_modal(ColourModal())
-        return
 
 
 class About(discord.ui.View):
