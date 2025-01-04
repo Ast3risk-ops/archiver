@@ -29,6 +29,8 @@ class TagSet(discord.ui.Modal):
         self.add_item(discord.ui.InputText(label="", required=False))
     async def callback(self, interaction: discord.Interaction):
         await interaction.response.defer()
+
+
 class ColourModal(discord.ui.Modal):
     def __init__(self):
         super().__init__(title="Customizer")
@@ -48,6 +50,8 @@ class ColourModal(discord.ui.Modal):
 
         # Edit the original message with the updated embed
         await interaction.response.edit_message(embed=embed)
+
+
 class DeleteBookmark(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
@@ -60,14 +64,16 @@ class DeleteBookmark(discord.ui.View):
     async def pin_callback(self, button, interaction):
         await interaction.message.pin()
         await interaction.response.defer()
-    @discord.ui.button(label="", custom_id="move_to_bottom", style=discord.ButtonStyle.secondary, emoji="⬇️")
+    @discord.ui.button(label="", custom_id="move_to_bottom", style=discord.ButtonStyle.secondary, emoji="🔽")
     async def button2_callback(self, button, interaction):
         for i in interaction.message.embeds:
-            i.set_footer(text="ℹ️ Go back to the original message to view attachments and embeds.")
+            i.set_footer(text="🔼 Go back to the original message to view attachments and embeds.")
             await interaction.response.send_message(embed=i, view=DeleteBookmark())
     @discord.ui.button(label="", custom_id="customize", style=discord.ButtonStyle.secondary, emoji="🎨")
     async def customizer(self, button, interaction):
         await interaction.response.send_modal(ColourModal())
+
+
 class About(discord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
