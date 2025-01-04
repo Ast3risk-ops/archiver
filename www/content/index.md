@@ -49,14 +49,16 @@ Never lose another message again.
   ::
   ::card
   ---
-  title: Hostable
-  icon: lucide:sailboat
-  to: /selfhost/
+  title: Free
+  icon: lucide:badge-dollar-sign
+  to: https://discord.com/oauth2/authorize?client_id=1311438512045949029
+  target: _blank
+  rel: noopener noreferrer
   showLinkIcon: false
   horizontal: true
   ---
   #description
-  Set up and run the bot yourself with ease.
+  No paywalls or limits. Ever.
   ::
   ::card
   ---
@@ -99,7 +101,7 @@ See our [quickstart guide](/setup/quickstart) or run `/help`.
 Where can I see updates?
 
 #content
-They're posted on the [changelog page](/changelog).
+They're posted on the [changelog page](/changelog) (major releases) and [Github commits](https://github.com/Ast3risk-ops/archiver/commits/main/){ target="_blank" rel="noopener noreferrer" } (small changes).
 ::
 
 <br>
