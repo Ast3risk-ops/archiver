@@ -161,21 +161,26 @@ async def bookmark_tag(
     if modal.children[0].value:
         embed.add_field(name="🔖 Tags", value=f"{modal.children[0].value}", inline=True)
     embed.set_thumbnail(url=ezcord.utils.avatar(f"{message.author.id}"))
-    await ctx.user.send(embed=embed, view=DeleteBookmark())
-    for i in message.attachments:
-        path = f"./{i.filename}"
-        await i.save(path)
-        await ctx.user.send(file=discord.File(path))
-        os.remove(path)
-    if message.stickers:
-        stickers = []
-        for i in message.stickers:
-            format = f'[{i.name}]({i.url})'
-            stickers.append(format)
-            await ctx.user.send(' '.join(stickers))
-    if message.embeds:
-        for i in message.embeds:
-            await ctx.user.send(embed=i)
-
+    try:
+        await ctx.user.send(embed=embed, view=DeleteBookmark())
+    except discord.Forbidden:
+        await ctx.respond("☹️ I can't DM you! Please enable DMs for this server and try again.", ephemeral=True)
+    except discord.HTTPException:
+        await ctx.respond("☹️ I can't DM you! (Unknown HTTP exception, please contact my developer if the issue persists)", ephemeral=True)
+    else:
+        for i in message.attachments:
+            path = f"./{i.filename}"
+            await i.save(path)
+            await ctx.user.send(file=discord.File(path))
+            os.remove(path)
+        if message.stickers:
+            stickers = []
+            for i in message.stickers:
+                format = f'[{i.name}]({i.url})'
+                stickers.append(format)
+                await ctx.user.send(' '.join(stickers))
+        if message.embeds:
+            for i in message.embeds:
+                await ctx.user.send(embed=i)
 if __name__ == "__main__":
     bot.run(str(os.getenv('TOKEN'))) # run the bot with the token
