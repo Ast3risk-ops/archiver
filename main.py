@@ -209,13 +209,13 @@ async def bookmark_tag(ctx, message: discord.Message):
     )
     embed.add_field(
         name="<:mdicodetags:1311506780332752977> ID",
-        value=f"`{message.id}`",
+        value=f"{message.id}",
         inline=True,
     )
     if message.guild:
         embed.add_field(
             name="<:mdichesscastle:1314056466516283413> Guild",
-            value=f"`{message.guild.id}`",
+            value=f"{message.guild.id}",
             inline=True,
         )
     else:
