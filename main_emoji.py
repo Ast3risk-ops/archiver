@@ -10,6 +10,9 @@ website = (
     "https://caltrop.asterisk.lol"  # Will save a lot of time if the domain changes
 )
 
+numembeds = 0
+numfiles = 0
+
 embed = None
 
 webhookurl = str(os.getenv("WEBHOOK_URL"))
@@ -77,6 +80,16 @@ class DeleteBookmark(discord.ui.View):
         await interaction.response.defer()
         self.disable_all_items()
         await interaction.message.delete()
+        global numembeds
+        global numfiles
+        if numembeds or numfiles != 0:
+            channel = interaction.channel
+            to_delete = int(numembeds + numfiles)
+            messages = await channel.history(
+                limit=to_delete, after=interaction.message.created_at
+            ).flatten()
+            for i in messages:
+                await i.delete()
 
     @discord.ui.button(
         label="", custom_id="pin", style=discord.ButtonStyle.secondary, emoji="📌"
@@ -211,9 +224,11 @@ async def bookmark_tag(ctx, message: discord.Message):
     else:
         embed.add_field(name="🏰 Guild", value=f"DM", inline=True)
     if message.embeds:
+        global numembeds
         numembeds = len(message.embeds)  # Number of embeds
         embed.add_field(name="🔲 Embeds", value=f"{numembeds}", inline=True)
     if message.attachments:
+        global numfiles
         numfiles = len(message.attachments)
         embed.add_field(name="📸 Attachments", value=f"{numfiles}", inline=True)
 
