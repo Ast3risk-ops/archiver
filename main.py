@@ -293,11 +293,12 @@ async def bookmark_tag(ctx, message: discord.Message):
             ephemeral=True,
         )
     else:
-        for i in message.attachments:
-            path = f"./{i.filename}"
-            await i.save(path)
-            await ctx.user.send(file=discord.File(path))
-            os.remove(path)
+        if oneimage != 1:
+            for i in message.attachments:
+                path = f"./{i.filename}"
+                await i.save(path)
+                await ctx.user.send(file=discord.File(path))
+                os.remove(path)
         if message.stickers:
             stickers = []
             for i in message.stickers:
