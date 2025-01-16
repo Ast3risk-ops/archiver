@@ -12,7 +12,7 @@ website = (
 
 numembeds = 0
 numfiles = 0
-
+oneimage = 0
 embed = None
 
 webhookurl = str(os.getenv("WEBHOOK_URL"))
@@ -82,7 +82,8 @@ class DeleteBookmark(discord.ui.View):
         await interaction.message.delete()
         global numembeds
         global numfiles
-        if numembeds or numfiles != 0:
+        global oneimage
+        if numembeds or numfiles != 0 and oneimage != 1:
             channel = interaction.channel
             to_delete = int(numembeds + numfiles)
             messages = await channel.history(
@@ -191,6 +192,7 @@ async def bookmark_tag(ctx, message: discord.Message):
         formatted_emoji = str(i.emoji)
         reactionlist.append(f"{count}x {formatted_emoji} ")
     global embed
+    global oneimage
     if message.content:
         embed = discord.Embed(
             title=f"🗃️ Archived Message On {discord.utils.format_dt(dt.now(), 'f')} ({discord.utils.format_dt(dt.now(), 'R')})",
@@ -230,6 +232,16 @@ async def bookmark_tag(ctx, message: discord.Message):
     if message.attachments:
         global numfiles
         numfiles = len(message.attachments)
+        if numfiles == 1:
+            for i in message.attachments:
+                if i.content_type and i.content_type.startswith("image/"):
+                    global oneimage
+                    oneimage = 1
+                    path = f"./{i.filename}"
+                    await i.save(path)
+                    img = discord.File(i.filename, filename=i.filename)
+                    embed.set_image(url=f"attachment://{i.filename}")
+                    os.remove(path)
         embed.add_field(name="📸 Attachments", value=f"{numfiles}", inline=True)
 
     embed.add_field(
@@ -240,8 +252,13 @@ async def bookmark_tag(ctx, message: discord.Message):
     if modal.children[0].value:
         embed.add_field(name="🔖 Tags", value=f"{modal.children[0].value}", inline=True)
     embed.set_thumbnail(url=ezcord.utils.avatar(f"{message.author.id}"))
+    if oneimage == 1:
+        embed.add_field(name=f"\n\n", value="", inline=True)
     try:
-        await ctx.user.send(embed=embed, view=DeleteBookmark())
+        if oneimage != 1:
+            await ctx.user.send(embed=embed, view=DeleteBookmark())
+        else:
+            await ctx.user.send(embed=embed, file=img, view=DeleteBookmark())
     except discord.Forbidden:
         await ctx.respond(
             "☹️ I can't DM you! Please enable DMs for this server and try again.",
@@ -253,11 +270,12 @@ async def bookmark_tag(ctx, message: discord.Message):
             ephemeral=True,
         )
     else:
-        for i in message.attachments:
-            path = f"./{i.filename}"
-            await i.save(path)
-            await ctx.user.send(file=discord.File(path))
-            os.remove(path)
+        if oneimage != 1:
+            for i in message.attachments:
+                path = f"./{i.filename}"
+                await i.save(path)
+                await ctx.user.send(file=discord.File(path))
+                os.remove(path)
         if message.stickers:
             stickers = []
             for i in message.stickers:
