@@ -6,9 +6,10 @@ toc: false
 ::hero
 ---
 announcement:
-  title: '1.0!'
-  icon: '🚀'
-  to: '/changelog/1.0'
+  title: 'Now on top.gg!'
+  icon: 'simple-icons:topdotgg'
+  to: 'https://top.gg/bot/1311438512045949029'
+  target: '_blank'
 actions:
   - name: Documentation
     rightIcon: lucide:arrow-right
