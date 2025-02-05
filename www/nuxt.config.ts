@@ -28,7 +28,7 @@ export default defineNuxtConfig({
       ]
     },
   },
-/*  nitro: {
+  nitro: {
     prerender: {
       // Pre-render the homepage
       routes: ['/'],
@@ -36,7 +36,6 @@ export default defineNuxtConfig({
       crawlLinks: true
     }
   },
-*/
   modules: ['@nuxtjs/robots', '@nuxtjs/sitemap'],
   icon: {
     serverBundle: 'local',
