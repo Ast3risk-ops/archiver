@@ -266,7 +266,7 @@ async def bookmark_tag(ctx, message: discord.Message):
         await ctx.user.send(embed=embed, view=DeleteBookmark())
     except discord.Forbidden:
         await ctx.respond(
-            "☹️ I can't DM you! Please enable DMs for this server or [install me as a user app](<https://discord.com/oauth2/authorize?client_id=1311438512045949029&integration_type=1&scope=applications.commands>) and try again.",
+            f"☹️ I can't DM you! Please enable DMs for this server or [install me as a user app](<https://discord.com/oauth2/authorize?client_id={bot.application_id}&integration_type=1&scope=applications.commands>) and try again.",
             ephemeral=True,
         )
     except discord.HTTPException:
