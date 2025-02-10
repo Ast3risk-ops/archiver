@@ -31,7 +31,7 @@ Never lose another message again.
 ::
 
 <div class="rounded-xl" align="center">
-<video src="/assets/vid/hero.mp4" height="1840" width="968" controls autoplay loop muted></video>
+<video src="/assets/vid/hero.mp4" height="1840" width="968" controls autoplay loop muted playsinline></video>
 </div>
 
 <p class="scroll-m-20 text-2xl font-semibold tracking-tight [&:not(:first-child)]:mt-8" align="center">With Archiver, you can conveniently keep a record of whatever messages you want.</p>
