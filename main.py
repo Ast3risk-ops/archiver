@@ -35,7 +35,7 @@ async def on_ready():
     )
 async def update_server_count():
     # Get the number of servers the bot is in
-    server_count = len(bot.guilds)
+    server_count = int(len(bot.guilds))
 
     # Prepare the headers and data for the POST request
     headers = {
@@ -45,7 +45,7 @@ async def update_server_count():
     data = {
         'server_count': server_count
     }
-
+    print(server_count)
     async with aiohttp.ClientSession() as session:
         async with session.post(f'https://top.gg/api/bots/1311438512045949029/stats', headers=headers, json=data) as response:
             if response.status != 200:
