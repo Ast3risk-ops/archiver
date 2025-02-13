@@ -315,7 +315,7 @@ async def bookmark_tag(ctx, message: discord.Message):
 
 if __name__ == "__main__":
     bot.run(str(os.getenv("TOKEN")))  # run the bot with the token
-
+    update_server_count()
 # You can also set up a task to update the server count periodically
 @tasks.loop(hours=1)
 async def periodic_update():
@@ -323,5 +323,3 @@ async def periodic_update():
 
 # Start the periodic update loop
 periodic_update.start()
-
-await update_server_count()
