@@ -45,7 +45,6 @@ async def update_server_count():
     data = {
         'server_count': server_count
     }
-    print(server_count)
     async with aiohttp.ClientSession() as session:
         async with session.post(f'https://top.gg/api/bots/1311438512045949029/stats', headers=headers, json=data) as response:
             if response.status != 200:
