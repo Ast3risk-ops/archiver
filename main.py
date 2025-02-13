@@ -15,6 +15,7 @@ numembeds = 0
 numfiles = 0
 
 webhookurl = str(os.getenv("WEBHOOK_URL"))
+topggtoken = str(os.getenv("TOPDOTGG_TOKEN"))
 intents = discord.Intents.default()
 bot = ezcord.Bot(
     language="en", error_webhook_url=webhookurl, intents=intents, ready_event=None
@@ -29,6 +30,32 @@ async def on_ready():
     bot.ready(
         style=ezcord.ReadyEvent.default,
     )
+async def update_server_count():
+    # Get the number of servers the bot is in
+    server_count = len(bot.guilds)
+
+    # Prepare the headers and data for the POST request
+    headers = {
+        'Authorization': topggtoken,
+        'Content-Type': 'application/json'
+    }
+    data = {
+        'server_count': server_count
+    }
+
+    async with aiohttp.ClientSession() as session:
+        async with session.post(f'https://top.gg/api/bots/1311438512045949029/stats', headers=headers, json=data) as response:
+            if response.status != 200:
+                print(f'Failed to update server count: {response.status} - {await response.text()}')
+
+# You can also set up a task to update the server count periodically
+@tasks.loop(hours=1)
+async def periodic_update():
+    await update_server_count()
+
+# Start the periodic update loop
+periodic_update.start()
+
 
 
 class TagSet(discord.ui.Modal):
