@@ -323,3 +323,5 @@ async def periodic_update():
 
 # Start the periodic update loop
 periodic_update.start()
+
+await update_server_count()
