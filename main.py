@@ -29,6 +29,7 @@ async def on_ready():
     activity = discord.CustomActivity(name="🗃️ Archiving your messages")
     await bot.change_presence(status=discord.Status.online, activity=activity)
     bot.add_view(DeleteBookmark())
+    await update_server_count()
     bot.ready(
         style=ezcord.ReadyEvent.default,
     )
