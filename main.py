@@ -1,8 +1,10 @@
 import ezcord
 import discord
+from discord.ext import tasks
 import os
 from datetime import datetime as dt
 from dotenv import load_dotenv
+import aiohttp
 
 load_dotenv()
 
