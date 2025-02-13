@@ -113,6 +113,8 @@ class DeleteBookmark(discord.ui.View):
         label="", custom_id="customize", style=discord.ButtonStyle.secondary, emoji="🎨"
     )
     async def customizer(self, button, interaction):
+        global embed
+        embed = interaction.message.embeds[0].copy()
         await interaction.response.send_modal(ColourModal())
 
 
