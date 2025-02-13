@@ -29,10 +29,10 @@ async def on_ready():
     activity = discord.CustomActivity(name="🗃️ Archiving your messages")
     await bot.change_presence(status=discord.Status.online, activity=activity)
     bot.add_view(DeleteBookmark())
-    await update_server_count()
     bot.ready(
         style=ezcord.ReadyEvent.default,
     )
+    await update_server_count()
 async def update_server_count():
     # Get the number of servers the bot is in
     server_count = int(len(bot.guilds))
@@ -50,14 +50,6 @@ async def update_server_count():
         async with session.post(f'https://top.gg/api/bots/1311438512045949029/stats', headers=headers, json=data) as response:
             if response.status != 200:
                 print(f'Failed to update server count: {response.status} - {await response.text()}')
-
-# You can also set up a task to update the server count periodically
-@tasks.loop(hours=1)
-async def periodic_update():
-    await update_server_count()
-
-# Start the periodic update loop
-periodic_update.start()
 
 
 
@@ -322,6 +314,13 @@ async def bookmark_tag(ctx, message: discord.Message):
             for i in message.embeds:
                 await ctx.user.send(embed=i)
 
+# You can also set up a task to update the server count periodically
+@tasks.loop(hours=1)
+async def periodic_update():
+    await update_server_count()
+
+# Start the periodic update loop
+periodic_update.start()
 
 if __name__ == "__main__":
     bot.run(str(os.getenv("TOKEN")))  # run the bot with the token
