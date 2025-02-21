@@ -50,7 +50,7 @@ async def update_server_count():
     async with aiohttp.ClientSession() as session:
         async with session.post(f'https://top.gg/api/bots/1311438512045949029/stats', headers=headers, json=data) as response:
             if response.status != 200:
-                print(f'Failed to update server count: {response.status} - {await response.text()}')
+                print(f'Failed to update server count (Top.gg): {response.status} - {await response.text()}')
 async def update_server_count_2():
     # Get the number of servers the bot is in
     server_count2 = int(len(bot.guilds))
@@ -66,7 +66,7 @@ async def update_server_count_2():
     async with aiohttp.ClientSession() as session:
         async with session.post(f'https://api.discordextremelist.xyz/v2/bot/1311438512045949029/stats', headers=headers, json=data) as response:
             if response.status != 200:
-                print(f'Failed to update server count: {response.status} - {await response.text()}')
+                print(f'Failed to update server count (DEL): {response.status} - {await response.text()}')
 
 
 class TagSet(discord.ui.Modal):
@@ -337,6 +337,7 @@ if __name__ == "__main__":
 @tasks.loop(hours=1)
 async def periodic_update():
     await update_server_count()
+    await update_server_count_2()
 
 # Start the periodic update loop
 periodic_update.start()
