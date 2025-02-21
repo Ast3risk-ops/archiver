@@ -18,6 +18,7 @@ numfiles = 0
 
 webhookurl = str(os.getenv("WEBHOOK_URL"))
 topggtoken = str(os.getenv("TOPDOTGG_TOKEN"))
+deltoken = str(os.getenv("DEL_TOKEN"))
 intents = discord.Intents.default()
 bot = ezcord.Bot(
     language="en", error_webhook_url=webhookurl, intents=intents, ready_event=None
@@ -33,10 +34,11 @@ async def on_ready():
         style=ezcord.ReadyEvent.default,
     )
     await update_server_count()
+    await update_server_count_2()
 async def update_server_count():
     # Get the number of servers the bot is in
     server_count = int(len(bot.guilds))
-
+    global topggtoken
     # Prepare the headers and data for the POST request
     headers = {
         'Authorization': topggtoken,
@@ -49,7 +51,22 @@ async def update_server_count():
         async with session.post(f'https://top.gg/api/bots/1311438512045949029/stats', headers=headers, json=data) as response:
             if response.status != 200:
                 print(f'Failed to update server count: {response.status} - {await response.text()}')
-
+async def update_server_count_2():
+    # Get the number of servers the bot is in
+    server_count2 = int(len(bot.guilds))
+    global deltoken
+    # Prepare the headers and data for the POST request
+    headers = {
+        'Authorization': deltoken,
+        'Content-Type': 'application/json'
+    }
+    data = {
+        'guildCount': server_count2
+    }
+    async with aiohttp.ClientSession() as session:
+        async with session.post(f'https://api.discordextremelist.xyz/v2/bot/1311438512045949029/stats', headers=headers, json=data) as response:
+            if response.status != 200:
+                print(f'Failed to update server count: {response.status} - {await response.text()}')
 
 
 class TagSet(discord.ui.Modal):
