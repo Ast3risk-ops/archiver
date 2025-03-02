@@ -7,11 +7,11 @@
         "@divriots/jampack": "^0.33.0",
         "@iconify-json/radix-icons": "^1.2.2",
         "@iconify-json/ri": "^1.2.5",
-        "@iconify-json/simple-icons": "^1.2.24",
-        "@nuxtjs/robots": "^5.2.2",
-        "@nuxtjs/sitemap": "^7.2.4",
+        "@iconify-json/simple-icons": "^1.2.26",
+        "@nuxtjs/robots": "^5.2.4",
+        "@nuxtjs/sitemap": "^7.2.6",
         "nuxt": "^3.15.4",
-        "shadcn-docs-nuxt": "^0.8.14",
+        "shadcn-docs-nuxt": "^0.8.16",
         "sharp": "^0.33.5",
         "vue": "^3.5.13",
         "vue-router": "^4.5.0",
@@ -169,7 +169,7 @@
 
     "@iconify-json/ri": ["@iconify-json/ri@1.2.5", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-kWGimOXMZrlYusjBKKXYOWcKhbOHusFsmrmRGmjS7rH0BpML5A9/fy8KHZqFOwZfC4M6amObQYbh8BqO5cMC3w=="],
 
-    "@iconify-json/simple-icons": ["@iconify-json/simple-icons@1.2.26", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-NvqRuE+5h/tp4boPlnvfs0alD0CvnRE7oeG9Li5NGmZRx2/rhwlNjW/vEVTyhZcR9zqvRPAVh2GXR+PTEpzV+A=="],
+    "@iconify-json/simple-icons": ["@iconify-json/simple-icons@1.2.27", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-FtZwp/H7ih5rY9FPfDR+k6toOo/cuwpHWY8faNhxLs5O5uW6Q8TeqdNWfjVfgFtrs5tUUzWysjqNGL234v8EMA=="],
 
     "@iconify-json/vscode-icons": ["@iconify-json/vscode-icons@1.2.16", "", { "dependencies": { "@iconify/types": "*" } }, "sha512-hstc2yVq2UJ6v6FrgjftzXRvphGZBsKxvSeXoFLP1Hgx89TPZKrGE5SV6vqsoeIlLYaQ7OZbXmAoVGroTfGmVQ=="],
 
@@ -1815,7 +1815,7 @@
 
     "setprototypeof": ["setprototypeof@1.2.0", "", {}, "sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw=="],
 
-    "shadcn-docs-nuxt": ["shadcn-docs-nuxt@0.8.16", "", { "dependencies": { "@iconify-json/lucide": "^1.2.27", "@iconify-json/vscode-icons": "^1.2.16", "@nuxt/content": "^2.13.4", "@nuxt/icon": "^1.10.3", "@nuxt/image": "^1.9.0", "@nuxt/scripts": "^0.10.5", "@nuxtjs/color-mode": "^3.5.2", "@nuxtjs/mdc": "^0.14.0", "@nuxtjs/tailwindcss": "^6.13.1", "class-variance-authority": "^0.7.1", "clsx": "^2.1.1", "nuxt": "^3.15.4", "nuxt-og-image": "^4.1.4", "radix-vue": "^1.9.16", "shadcn-nuxt": "^1.0.1", "tailwind-merge": "^2.6.0", "tailwindcss-animate": "^1.0.7", "typescript": "^5.7.3", "vue": "^3.5.13", "vue-router": "^4.5.0" } }, "sha512-YcsrL+xV8EFxwf5DX3xzb/WhzlGC8qD0sMBz9dlcr+dnNCuy181PKEYUGWgBWq7QrRVr462VGjv+jpUssk/b+Q=="],
+    "shadcn-docs-nuxt": ["shadcn-docs-nuxt@0.8.18", "", { "dependencies": { "@iconify-json/lucide": "^1.2.27", "@iconify-json/vscode-icons": "^1.2.16", "@nuxt/content": "^2.13.4", "@nuxt/icon": "^1.10.3", "@nuxt/image": "^1.9.0", "@nuxt/scripts": "^0.10.5", "@nuxtjs/color-mode": "^3.5.2", "@nuxtjs/mdc": "^0.14.0", "@nuxtjs/tailwindcss": "^6.13.1", "class-variance-authority": "^0.7.1", "clsx": "^2.1.1", "nuxt": "^3.15.4", "nuxt-og-image": "^4.1.5", "radix-vue": "^1.9.17", "shadcn-nuxt": "^1.0.2", "tailwind-merge": "^2.6.0", "tailwindcss-animate": "^1.0.7", "typescript": "^5.8.2", "vue": "^3.5.13", "vue-router": "^4.5.0" } }, "sha512-bRxNe2cKikuFPhqTMOwvzvAhCsT18vm6ubZoIWgb+CglbxnvfxH7qLNyKaxzAcdMc9Eij9/ezrDA7bhMD/u9bQ=="],
 
     "shadcn-nuxt": ["shadcn-nuxt@1.0.2", "", { "dependencies": { "@nuxt/kit": "^3.15.4", "@oxc-parser/wasm": "^0.50.0", "typescript": "5.6.3" } }, "sha512-snQmgrfW8LmAGTGRWBNS6vjAlu9eneiH32GtsFLxKkRFM7Wtm3nmT52W52eKTWT27LFsL4TaHgZ6J1AIetlFBQ=="],
 
@@ -1981,7 +1981,7 @@
 
     "type-is": ["type-is@1.6.18", "", { "dependencies": { "media-typer": "0.3.0", "mime-types": "~2.1.24" } }, "sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g=="],
 
-    "typescript": ["typescript@5.7.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw=="],
+    "typescript": ["typescript@5.8.2", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ=="],
 
     "ufo": ["ufo@1.5.4", "", {}, "sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ=="],
 
