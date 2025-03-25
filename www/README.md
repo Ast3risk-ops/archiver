@@ -1,5 +1,4 @@
 # Archiver Website
-[![Netlify Status](https://api.netlify.com/api/v1/badges/23d6c79a-709a-44ea-a7c8-f674780842d3/deploy-status)](https://app.netlify.com/sites/archiver-www/deploys)
 
 Powered by [Nuxt](https://nuxt.com) and [`shadcn-docs-nuxt`](https://shadcn-docs-nuxt.vercel.app).
 
