@@ -15,7 +15,7 @@ actions:
     rightIcon: lucide:arrow-right
     leftIcon: lucide:book-open-text
     to: /setup
-  - name: Install the user app
+  - name: Add the app
     rightIcon: lucide:arrow-up-right
     leftIcon: simple-icons:discord
     variant: outline
