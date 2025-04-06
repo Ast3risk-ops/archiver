@@ -1,4 +1,5 @@
 www/
+.git/
 .env
 .env.example
 docker-compose-example.yml
