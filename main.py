@@ -25,6 +25,18 @@ bot = ezcord.Bot(
 )
 
 
+def human_readable_size(size_in_bytes):
+    """Convert bytes to a human-readable format."""
+    if size_in_bytes < 1024:
+        return f"{size_in_bytes} Bytes"
+    elif size_in_bytes < 1024**2:
+        return f"{size_in_bytes / 1024:.2f} KB"
+    elif size_in_bytes < 1024**3:
+        return f"{size_in_bytes / (1024 ** 2):.2f} MB"
+    else:
+        return f"{size_in_bytes / (1024 ** 3):.2f} GB"
+
+
 @bot.event
 async def on_ready():
     activity = discord.CustomActivity(name="🗃️ Archiving your messages")
@@ -35,38 +47,44 @@ async def on_ready():
     )
     await update_server_count()
     await update_server_count_2()
+
+
 async def update_server_count():
     # Get the number of servers the bot is in
     server_count = int(len(bot.guilds))
     global topggtoken
     # Prepare the headers and data for the POST request
-    headers = {
-        'Authorization': topggtoken,
-        'Content-Type': 'application/json'
-    }
-    data = {
-        'server_count': server_count
-    }
+    headers = {"Authorization": topggtoken, "Content-Type": "application/json"}
+    data = {"server_count": server_count}
     async with aiohttp.ClientSession() as session:
-        async with session.post(f'https://top.gg/api/bots/1311438512045949029/stats', headers=headers, json=data) as response:
+        async with session.post(
+            f"https://top.gg/api/bots/1311438512045949029/stats",
+            headers=headers,
+            json=data,
+        ) as response:
             if response.status != 200:
-                print(f'Failed to update server count (Top.gg): {response.status} - {await response.text()}')
+                print(
+                    f"Failed to update server count (Top.gg): {response.status} - {await response.text()}"
+                )
+
+
 async def update_server_count_2():
     # Get the number of servers the bot is in
     server_count2 = int(len(bot.guilds))
     global deltoken
     # Prepare the headers and data for the POST request
-    headers = {
-        'Authorization': deltoken,
-        'Content-Type': 'application/json'
-    }
-    data = {
-        'guildCount': server_count2
-    }
+    headers = {"Authorization": deltoken, "Content-Type": "application/json"}
+    data = {"guildCount": server_count2}
     async with aiohttp.ClientSession() as session:
-        async with session.post(f'https://api.discordextremelist.xyz/v2/bot/1311438512045949029/stats', headers=headers, json=data) as response:
+        async with session.post(
+            f"https://api.discordextremelist.xyz/v2/bot/1311438512045949029/stats",
+            headers=headers,
+            json=data,
+        ) as response:
             if response.status != 200:
-                print(f'Failed to update server count (DEL): {response.status} - {await response.text()}')
+                print(
+                    f"Failed to update server count (DEL): {response.status} - {await response.text()}"
+                )
 
 
 class TagSet(discord.ui.Modal):
@@ -318,8 +336,25 @@ async def bookmark_tag(ctx, message: discord.Message):
         for i in message.attachments:
             path = f"./{i.filename}"
             await i.save(path)
-            await ctx.user.send(file=discord.File(path))
-            os.remove(path)
+            try:
+                await ctx.user.send(file=discord.File(path))
+            except discord.HTTPException as e:
+                if e.status == 413:
+                    filesize = human_readable_size(i.size)
+                    await ctx.respond(
+                        content=f"<@{ctx.user.id}> ⚠️ Attachment `{i.filename}` is too large to re-upload ({filesize}). The URL for this attachment will be saved instead (this expires).",
+                        ephemeral=True,
+                    )
+                    await ctx.user.send(content=i.url)
+                    os.remove(path)
+                else:
+                    await ctx.respond(
+                        content=f"<@{ctx.user.id}> ⛔ Error while re-uploading attachment `{i.filename}`: \n\n```\n{e}\n```",
+                        ephemeral=True,
+                    )
+                    os.remove(path)
+            else:
+                os.remove(path)
         if message.stickers:
             stickers = []
             for i in message.stickers:
@@ -330,14 +365,17 @@ async def bookmark_tag(ctx, message: discord.Message):
             for i in message.embeds:
                 await ctx.user.send(embed=i)
 
+
 if __name__ == "__main__":
     bot.run(str(os.getenv("TOKEN")))  # run the bot with the token
+
 
 # You can also set up a task to update the server count periodically
 @tasks.loop(hours=1)
 async def periodic_update():
     await update_server_count()
     await update_server_count_2()
+
 
 # Start the periodic update loop
 periodic_update.start()

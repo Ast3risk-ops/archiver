@@ -21,6 +21,18 @@ bot = ezcord.Bot(
 )
 
 
+def human_readable_size(size_in_bytes):
+    """Convert bytes to a human-readable format."""
+    if size_in_bytes < 1024:
+        return f"{size_in_bytes} Bytes"
+    elif size_in_bytes < 1024**2:
+        return f"{size_in_bytes / 1024:.2f} KB"
+    elif size_in_bytes < 1024**3:
+        return f"{size_in_bytes / (1024 ** 2):.2f} MB"
+    else:
+        return f"{size_in_bytes / (1024 ** 3):.2f} GB"
+
+
 @bot.event
 async def on_ready():
     activity = discord.CustomActivity(name="🗃️ Archiving your messages")
@@ -257,8 +269,25 @@ async def bookmark_tag(ctx, message: discord.Message):
         for i in message.attachments:
             path = f"./{i.filename}"
             await i.save(path)
-            await ctx.user.send(file=discord.File(path))
-            os.remove(path)
+            try:
+                await ctx.user.send(file=discord.File(path))
+            except discord.HTTPException as e:
+                if e.status == 413:
+                    filesize = human_readable_size(i.size)
+                    await ctx.respond(
+                        content=f"<@{ctx.user.id}> ⚠️ Attachment `{i.filename}` is too large to re-upload ({filesize}). The URL for this attachment will be saved instead (this expires).",
+                        ephemeral=True,
+                    )
+                    await ctx.user.send(content=i.url)
+                    os.remove(path)
+                else:
+                    await ctx.respond(
+                        content=f"<@{ctx.user.id}> ⛔ Error while re-uploading attachment `{i.filename}`: \n\n```\n{e}\n```",
+                        ephemeral=True,
+                    )
+                    os.remove(path)
+            else:
+                os.remove(path)
         if message.stickers:
             stickers = []
             for i in message.stickers:
