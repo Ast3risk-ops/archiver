@@ -261,7 +261,7 @@ class ColourModal(discord.ui.Modal):
         self.add_item(
             discord.ui.InputText(
                 label="Embed Colour",
-                placeholder="Colour name (white) or hex code (#FFFFFF)",
+                placeholder="Colour name (lightgreen) or hex code (#90ee90)",
                 required=True,
             )
         )
