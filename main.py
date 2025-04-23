@@ -39,7 +39,7 @@ def human_readable_size(size_in_bytes):
 
 @bot.event
 async def on_ready():
-    activity = discord.CustomActivity(name="🗃️ Archiving your messages")
+    activity = discord.CustomActivity(name="🗃️ Archiving messages")
     await bot.change_presence(status=discord.Status.online, activity=activity)
     bot.add_view(DeleteBookmark())
     bot.ready(
