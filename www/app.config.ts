@@ -100,7 +100,7 @@ export default defineAppConfig({
       enableInMobile: false,
       title: 'On This Page',
       links: [{
-        title: 'Install the user app',
+        title: 'Install the app',
         icon: 'radix-icons:discord-logo',
         to: 'https://discord.com/oauth2/authorize?client_id=1311438512045949029',
         target: '_blank',
@@ -114,7 +114,7 @@ export default defineAppConfig({
       {
         title: 'Report a bug',
         icon: 'lucide:bug',
-        to: 'https://github.com/Ast3risk-ops/archiver/issues/new?assignees=Ast3risk-ops&labels=bug&projects=&template=bug.yml&title=%F0%9F%90%9B+',
+        to: 'https://github.com/Ast3risk-ops/archiver/issues/new?template=bug.yml',
         target: '_blank',
         rel: 'noopener noreferrer',
       }],
