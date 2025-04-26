@@ -37,8 +37,8 @@ body:
     attributes:
       label: Are you using Docker?
       options:
-        - Yes
-        - No
+        - "Yes"
+        - "No"
       default: 1
     validations:
       required: true
