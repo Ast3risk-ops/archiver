@@ -45,9 +45,13 @@ body:
   - type: input
     attributes:
       label: Python version
+      description: "Not applicable for site issues."
       placeholder: "3.13.3"
-    validations:
-      required: true
+  - type: input
+    attributes:
+      label: Browser
+      description: "Not applicable for bot issues."
+      placeholder: "Firefox 104.0"
   - type: markdown
     attributes:
       value: "## Your Issue"
