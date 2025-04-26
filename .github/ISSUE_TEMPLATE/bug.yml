@@ -21,6 +21,32 @@ body:
       default: 0
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: "## Environment"
+  - type: input
+    id: os
+    attributes:
+      label: "OS"
+      description: "Specify your version or distro."
+      placeholder: "Ubuntu 24.04"
+    validations:
+      required: true
+  - type: dropdown
+    id: docker
+    attributes:
+      label: Are you using Docker?
+      options:
+        - Yes
+        - No
+      default: 1
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Python version
+    validations:
+      required: true
   - type: textarea
     id: what-supposed-happened
     attributes:
