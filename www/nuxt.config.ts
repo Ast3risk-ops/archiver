@@ -41,5 +41,15 @@ export default defineNuxtConfig({
     serverBundle: 'local',
   },
   extends: ['shadcn-docs-nuxt'],
+  i18n: { 
+    defaultLocale: 'en', 
+    locales: [ 
+      { 
+        code: 'en', 
+        name: 'English', 
+        language: 'en-CA',
+      }, 
+    ], 
+  },
   compatibilityDate: '2024-07-06',
 });
