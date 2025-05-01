@@ -47,7 +47,7 @@ export default defineNuxtConfig({
       { 
         code: 'en', 
         name: 'English', 
-        language: 'en-CA',
+        language: 'en-US',
       }, 
     ], 
   },
