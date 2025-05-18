@@ -102,7 +102,7 @@ See our [quickstart guide](/setup/quickstart) or run `/help`.
 Where can I see updates?
 
 #content
-They're posted on the [changelog page](/changelog) (major releases) and [Github commits](https://github.com/Ast3risk-ops/archiver/commits/main/){ target="_blank" rel="noopener noreferrer" } (small changes).
+They're posted on the [changelog page](/changelog/1-0-4) (major releases) and [Github commits](https://github.com/Ast3risk-ops/archiver/commits/main/){ target="_blank" rel="noopener noreferrer" } (small changes).
 ::
 
 <br>
