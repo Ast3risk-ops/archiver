@@ -11,17 +11,17 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@divriots/jampack": "^0.33.0",
+    "@divriots/jampack": "^0.33.1",
     "@iconify-json/radix-icons": "^1.2.2",
     "@iconify-json/ri": "^1.2.5",
-    "@iconify-json/simple-icons": "^1.2.35",
+    "@iconify-json/simple-icons": "^1.2.36",
     "@nuxt/kit": "^3.17.4",
     "@nuxtjs/robots": "^5.2.10",
     "@nuxtjs/sitemap": "^7.3.0",
     "nuxt": "^3.17.4",
-    "shadcn-docs-nuxt": "^0.8.21",
+    "shadcn-docs-nuxt": "^1.0.1",
     "sharp": "^0.33.5",
-    "vue": "^3.5.14",
+    "vue": "^3.5.15",
     "vue-router": "^4.5.1"
   },
   "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
