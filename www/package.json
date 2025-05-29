@@ -21,7 +21,7 @@
     "nuxt": "^3.17.4",
     "shadcn-docs-nuxt": "^1.0.1",
     "sharp": "^0.33.5",
-    "vue": "^3.5.15",
+    "vue": "^3.5.16",
     "vue-router": "^4.5.1"
   },
   "packageManager": "yarn@1.22.21+sha1.1959a18351b811cdeedbd484a8f86c3cc3bbaf72"
