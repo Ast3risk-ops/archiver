@@ -11,4 +11,5 @@ LICENSE
 Pipfile
 Pipfile.lock
 README.md
+SECURITY.md
 main.py
