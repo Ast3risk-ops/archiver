@@ -1,0 +1,6 @@
+Contact: https://asterisk.lol/socials
+Contact: to:me@asterisk.lol
+Expires: 2026-01-01T05:00:00.000Z
+Encryption: https://i.asterisk.lol/l/pgpkey # for me@asterisk.lol only
+Preferred-Languages: en
+Canonical: https://archiver.asterisk.lol/.well-known/security.txt
