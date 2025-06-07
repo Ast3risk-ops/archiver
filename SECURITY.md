@@ -4,7 +4,7 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| Latest release (1.0.4)   | :white_check_mark: |
+| Latest release (1.1)   | :white_check_mark: |
 | Older versions | :x: |
 | Alpha builds | :x: |
 
