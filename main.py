@@ -282,7 +282,7 @@ class ColourModal(discord.ui.Modal):
                 return  # Exit the callback
 
         # Update the global embed color
-        global embed
+        embed = interaction.message.embeds[0].copy()
         embed.color = colour
 
         # Edit the original message with the updated embed
@@ -319,6 +319,12 @@ class DeleteBookmark(discord.ui.View):
         await interaction.response.defer()
 
     @discord.ui.button(
+        label="", custom_id="edit_tag", style=discord.ButtonStyle.secondary, emoji="✏️"
+    )
+    async def edit_tag_callback(self, button, interaction):
+        await interaction.response.send_modal(EditTagModal())
+
+    @discord.ui.button(
         label="",
         custom_id="move_to_bottom",
         style=discord.ButtonStyle.secondary,
@@ -335,9 +341,52 @@ class DeleteBookmark(discord.ui.View):
         label="", custom_id="customize", style=discord.ButtonStyle.secondary, emoji="🎨"
     )
     async def customizer(self, button, interaction):
-        global embed
-        embed = interaction.message.embeds[0].copy()
         await interaction.response.send_modal(ColourModal())
+
+
+class EditTagModal(discord.ui.Modal):
+    def __init__(self):
+        super().__init__(title="Edit Tag(s)")
+        self.add_item(
+            discord.ui.InputText(
+                label="",
+                placeholder="Enter new tag(s), leave this empty to remove all tags",
+                required=False,
+            )
+        )
+
+    async def callback(self, interaction: discord.Interaction):
+        embed = interaction.message.embeds[0].copy()
+        new_tag = self.children[0].value.strip()
+        fields = []
+        tag_found = False
+        for field in embed.fields:
+            if field.name == "<:mditag:1311505882047189012> Tags":
+                tag_found = True
+                if new_tag:
+                    fields.append(
+                        discord.EmbedField(
+                            name="<:mditag:1311505882047189012> Tags",
+                            value=new_tag,
+                            inline=True,
+                        )
+                    )
+                # If new_tag is empty, skip adding this field (removes it)
+            else:
+                fields.append(field)
+        # If no tag field was found and new_tag is not empty, add it
+        if not tag_found and new_tag:
+            fields.append(
+                discord.EmbedField(
+                    name="<:mditag:1311505882047189012> Tags",
+                    value=new_tag,
+                    inline=True,
+                )
+            )
+        embed.clear_fields()
+        for field in fields:
+            embed.add_field(name=field.name, value=field.value, inline=field.inline)
+        await interaction.response.edit_message(embed=embed, view=DeleteBookmark())
 
 
 class About(discord.ui.View):
