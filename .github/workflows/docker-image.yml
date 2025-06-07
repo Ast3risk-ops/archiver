@@ -8,7 +8,6 @@ on:
       - 'main_emoji.py'
       - 'requirements.txt'
       - 'Pipfile'
-      - 'requirements.txt'
       - 'Dockerfile'
       - 'docker-compose.yml'
       - '.dockerignore'
