@@ -396,6 +396,21 @@ async def about(ctx):
     await ctx.respond(embed=embed, view=About(), ephemeral=True)
 
 
+@bot.slash_command(
+    integration_types={
+        discord.IntegrationType.guild_install,
+        discord.IntegrationType.user_install,
+    },
+    name="ping",
+    description="Pong! Check Discord API latency",
+)
+async def ping(ctx):
+    await ctx.respond(
+        f"🏓 Pong! Discord API latency is **{round(bot.latency * 1000)}ms**",
+        ephemeral=True,
+    )
+
+
 @bot.message_command(
     # This command can be used by guild members, but also by users anywhere if they install it
     integration_types={
