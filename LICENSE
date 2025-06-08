@@ -1,4 +1,13 @@
-This license covers all files in this repo, with the exclusion of the www/ directory.
+This license covers all files in this repo, including those with an SPDX license identifier, with the exclusion of the www/ directory.
+
+In addition to the below License, the following restrictions apply:
+
+- You may not make a private version of the bot (a copy of 
+  the source code not hosted by us) into a "public bot" 
+  (as defined by Discord) without prior written approval from the lead developer.
+- You may not list private versions of this bot 
+  on bot listing sites (Top.gg, discordbotlist, discordextremelist, etc.) without 
+  prior written approval from the lead developer.
 -------------------------------------------------------------------------------------
 
                     GNU AFFERO GENERAL PUBLIC LICENSE
