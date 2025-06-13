@@ -403,9 +403,15 @@ async def about(ctx):
     embed.set_thumbnail(url=ezcord.utils.avatar(f"{bot.application_id}"))
     embed.add_field(name="🏰 Servers", value=int(len(bot.guilds)), inline=True)
     embed.add_field(name="👤 Users", value="?", inline=True)
-    embed.add_field(name="🖥️ Host", value=f"{platform.system()} {platform.release()}", inline=True)
+    embed.add_field(
+        name="🖥️ Host", value=f"{platform.system()} {platform.release()}", inline=True
+    )
     embed.add_field(name="🐍 Python", value=python_version, inline=True)
-    embed.add_field(name="📚 Libraries", value=f"[Pycord](https://pycord.dev) {pycord_version} w/ [ezcord](https://ezcord.rtfd.io) {ezcord_version}", inline=True)
+    embed.add_field(
+        name="📚 Libraries",
+        value=f"[Pycord](https://pycord.dev) {pycord_version} w/ [ezcord](https://ezcord.rtfd.io) {ezcord_version}",
+        inline=True,
+    )
     await ctx.respond(embed=embed, view=About(), ephemeral=True)
 
 

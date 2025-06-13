@@ -212,7 +212,7 @@ async def on_ready():
     )
     await update_server_count()
     await update_server_count_2()
-    periodic_update.start() 
+    periodic_update.start()
 
 
 async def update_server_count():
@@ -461,11 +461,29 @@ async def about(ctx):
     except importlib.metadata.PackageNotFoundError:
         ezcord_version = "?"
     embed.set_thumbnail(url=ezcord.utils.avatar(f"{bot.application_id}"))
-    embed.add_field(name="<:mdichesscastle:1314056466516283413> Servers", value=int(len(bot.guilds)), inline=True)
-    embed.add_field(name="<:mdiaccount:1311490376091045989> Users", value="?", inline=True)
-    embed.add_field(name="<:mdiserver:1383097147288846356> Host", value=f"{platform.system()} {platform.release()}", inline=True)
-    embed.add_field(name="<:mdilanguagepython:1383097357884854433> Python", value=python_version, inline=True)
-    embed.add_field(name="<:mdibookshelf:1383097558112669716> Libraries", value=f"[Pycord](https://pycord.dev) {pycord_version} w/ [ezcord](https://ezcord.rtfd.io) {ezcord_version}", inline=True)
+    embed.add_field(
+        name="<:mdichesscastle:1314056466516283413> Servers",
+        value=int(len(bot.guilds)),
+        inline=True,
+    )
+    embed.add_field(
+        name="<:mdiaccount:1311490376091045989> Users", value="?", inline=True
+    )
+    embed.add_field(
+        name="<:mdiserver:1383097147288846356> Host",
+        value=f"{platform.system()} {platform.release()}",
+        inline=True,
+    )
+    embed.add_field(
+        name="<:mdilanguagepython:1383097357884854433> Python",
+        value=python_version,
+        inline=True,
+    )
+    embed.add_field(
+        name="<:mdibookshelf:1383097558112669716> Libraries",
+        value=f"[Pycord](https://pycord.dev) {pycord_version} w/ [ezcord](https://ezcord.rtfd.io) {ezcord_version}",
+        inline=True,
+    )
     await ctx.respond(embed=embed, view=About(), ephemeral=True)
 
 
