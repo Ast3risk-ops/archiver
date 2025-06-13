@@ -448,9 +448,8 @@ async def help(ctx):
 async def about(ctx):
     app_info = await bot.application_info()
     owner = app_info.owner
-    if hasattr(owner, "members"):  # It's a Team
-        member_names = ", ".join([str(member) for member in owner.members])
-        managed_by = f"\n\nThis instance is managed by {member_names}"
+    if isinstance(owner, discord.Team):  # It's a Team
+        managed_by = f"\n\nThis instance is managed by {owner.owner.name}"
     else:
         managed_by = f"\n\nThis instance is managed by <@{owner.id}>"
     embed = discord.Embed(
