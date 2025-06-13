@@ -446,9 +446,11 @@ async def help(ctx):
     description="Links and stuff",
 )
 async def about(ctx):
+    app_info = await bot.application_info()
+    owner = app_info.owner
     embed = discord.Embed(
         title="About",
-        description=f"[**Archiver**]({website}) is a bot to archive Discord messages, developed by [**Asterisk**](https://asterisk.lol).",
+        description=f"[**Archiver**]({website}) is a bot to archive Discord messages, developed by [**Asterisk**](https://asterisk.lol).\n\nThis instance is managed by <@{owner.id}>",
         color=discord.Colour.from_rgb(255, 255, 255),
     )
     python_version = platform.python_version()
