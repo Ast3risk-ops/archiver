@@ -448,7 +448,7 @@ async def help(ctx):
 )
 async def about(ctx):
     global owner
-    managed_by = f"\n\nThis instance is managed by **{owner}**"
+    managed_by = f"\n\nThis instance is managed by **{owner}**."
     embed = discord.Embed(
         title="About",
         description=f"[**Archiver**]({website}) is a bot to archive Discord messages, developed by [**Asterisk**](https://asterisk.lol).{managed_by}",
