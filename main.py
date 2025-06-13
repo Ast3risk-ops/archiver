@@ -1,6 +1,8 @@
 import ezcord
 import discord
 from discord.ext import tasks
+import platform
+import importlib.metadata
 import os
 from datetime import datetime as dt
 from dotenv import load_dotenv
@@ -194,6 +196,12 @@ colour_list = {
 }
 
 
+@tasks.loop(hours=1)
+async def periodic_update():
+    await update_server_count()
+    await update_server_count_2()
+
+
 @bot.event
 async def on_ready():
     activity = discord.CustomActivity(name="🗃️ Archiving messages")
@@ -204,6 +212,7 @@ async def on_ready():
     )
     await update_server_count()
     await update_server_count_2()
+    periodic_update.start() 
 
 
 async def update_server_count():
@@ -442,6 +451,21 @@ async def about(ctx):
         description=f"[**Archiver**]({website}) is a bot to archive Discord messages, developed by [**Asterisk**](https://asterisk.lol).",
         color=discord.Colour.from_rgb(255, 255, 255),
     )
+    python_version = platform.python_version()
+    try:
+        pycord_version = importlib.metadata.version("py-cord")
+    except importlib.metadata.PackageNotFoundError:
+        pycord_version = "?"
+    try:
+        ezcord_version = importlib.metadata.version("ezcord")
+    except importlib.metadata.PackageNotFoundError:
+        ezcord_version = "?"
+    embed.set_thumbnail(url=ezcord.utils.avatar(f"{bot.application_id}"))
+    embed.add_field(name="<:mdichesscastle:1314056466516283413> Servers", value=int(len(bot.guilds)), inline=True)
+    embed.add_field(name="<:mdiaccount:1311490376091045989> Users", value="?", inline=True)
+    embed.add_field(name="<:mdiserver:1383097147288846356> Host", value=f"{platform.system()} {platform.release()}", inline=True)
+    embed.add_field(name="<:mdilanguagepython:1383097357884854433> Python", value=python_version, inline=True)
+    embed.add_field(name="<:mdibookshelf:1383097558112669716> Libraries", value=f"[Pycord](https://pycord.dev) {pycord_version} w/ [ezcord](https://ezcord.rtfd.io) {ezcord_version}", inline=True)
     await ctx.respond(embed=embed, view=About(), ephemeral=True)
 
 
@@ -520,7 +544,7 @@ async def bookmark_tag(ctx, message: discord.Message):
         )
     else:
         embed.add_field(
-            name="<:mdichesscastle:1314056466516283413> Guild", value=f"DM", inline=True
+            name="<:mdichesscastle:1314056466516283413> Guild", value="DM", inline=True
         )
     if message.embeds:
         global numembeds
@@ -598,14 +622,3 @@ async def bookmark_tag(ctx, message: discord.Message):
 
 if __name__ == "__main__":
     bot.run(str(os.getenv("TOKEN")))  # run the bot with the token
-
-
-# You can also set up a task to update the server count periodically
-@tasks.loop(hours=1)
-async def periodic_update():
-    await update_server_count()
-    await update_server_count_2()
-
-
-# Start the periodic update loop
-periodic_update.start()

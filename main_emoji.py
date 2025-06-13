@@ -1,5 +1,7 @@
 import ezcord
 import discord
+import platform
+import importlib.metadata
 import os
 from datetime import datetime as dt
 from dotenv import load_dotenv
@@ -389,6 +391,21 @@ async def about(ctx):
         description=f"[**Archiver**]({website}) is a bot to archive Discord messages, developed by [**Asterisk**](https://asterisk.lol).",
         color=discord.Colour.from_rgb(255, 255, 255),
     )
+    python_version = platform.python_version()
+    try:
+        pycord_version = importlib.metadata.version("py-cord")
+    except importlib.metadata.PackageNotFoundError:
+        pycord_version = "?"
+    try:
+        ezcord_version = importlib.metadata.version("ezcord")
+    except importlib.metadata.PackageNotFoundError:
+        ezcord_version = "?"
+    embed.set_thumbnail(url=ezcord.utils.avatar(f"{bot.application_id}"))
+    embed.add_field(name="🏰 Servers", value=int(len(bot.guilds)), inline=True)
+    embed.add_field(name="👤 Users", value="?", inline=True)
+    embed.add_field(name="🖥️ Host", value=f"{platform.system()} {platform.release()}", inline=True)
+    embed.add_field(name="🐍 Python", value=python_version, inline=True)
+    embed.add_field(name="📚 Libraries", value=f"[Pycord](https://pycord.dev) {pycord_version} w/ [ezcord](https://ezcord.rtfd.io) {ezcord_version}", inline=True)
     await ctx.respond(embed=embed, view=About(), ephemeral=True)
 
 
@@ -456,7 +473,7 @@ async def bookmark_tag(ctx, message: discord.Message):
     if message.guild:
         embed.add_field(name="🏰 Guild", value=f"{message.guild.id}", inline=True)
     else:
-        embed.add_field(name="🏰 Guild", value=f"DM", inline=True)
+        embed.add_field(name="🏰 Guild", value="DM", inline=True)
     if message.embeds:
         global numembeds
         numembeds = len(message.embeds)  # Number of embeds
