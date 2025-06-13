@@ -388,10 +388,7 @@ async def help(ctx):
 async def about(ctx):
     app_info = await bot.application_info()
     owner = app_info.owner
-    if isinstance(owner, discord.Team):  # It's a Team
-        managed_by = f"\n\nThis instance is managed by {owner.owner.name}"
-    else:
-        managed_by = f"\n\nThis instance is managed by <@{owner.id}>"
+    managed_by = f"\n\nThis instance is managed by <@{owner.id}>"
     embed = discord.Embed(
         title="About",
         description=f"[**Archiver**]({website}) is a bot to archive Discord messages, developed by [**Asterisk**](https://asterisk.lol).{managed_by}",

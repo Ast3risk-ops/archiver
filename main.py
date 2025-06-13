@@ -14,6 +14,7 @@ website = (
     "https://caltrop.asterisk.lol"  # Will save a lot of time if the domain changes
 )
 
+owner = "Asterisk"
 embed = None
 numembeds = 0
 numfiles = 0
@@ -446,12 +447,8 @@ async def help(ctx):
     description="Links and stuff",
 )
 async def about(ctx):
-    app_info = await bot.application_info()
-    owner = app_info.owner
-    if isinstance(owner, discord.Team):  # It's a Team
-        managed_by = f"\n\nThis instance is managed by {owner.owner.name}"
-    else:
-        managed_by = f"\n\nThis instance is managed by <@{owner.id}>"
+    global owner
+    managed_by = f"\n\nThis instance is managed by **{owner}**"
     embed = discord.Embed(
         title="About",
         description=f"[**Archiver**]({website}) is a bot to archive Discord messages, developed by [**Asterisk**](https://asterisk.lol).{managed_by}",
