@@ -36,7 +36,16 @@ export default defineNuxtConfig({
       crawlLinks: true
     }
   },
-  modules: ['@nuxtjs/robots', '@nuxtjs/sitemap'],
+  modules: ['@nuxtjs/robots', '@nuxtjs/sitemap', 'nuxt-llms'],
+  llms: {
+    domain: 'https://archiver.asterisk.lol',
+    title: 'Archiver',
+    description: 'A simple Discord user and guild app for archiving messages.',
+    full: {
+      title: 'Archiver',
+      description: 'A simple Discord user and guild app for archiving messages.',
+    },
+  },
   icon: {
     serverBundle: 'local',
   },
