@@ -52,6 +52,7 @@ export default defineAppConfig({
     },
     aside: {
       useLevel: true,
+      levelStyle: 'aside',
       collapse: false,
     },
     main: {
