@@ -53,6 +53,7 @@ export default defineAppConfig({
     aside: {
       useLevel: true,
       levelStyle: 'aside',
+      // headerLevelNavAlign: 'center',
       collapse: false,
     },
     main: {

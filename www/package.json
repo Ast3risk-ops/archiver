@@ -19,7 +19,7 @@
     "@nuxtjs/robots": "^5.2.11",
     "@nuxtjs/sitemap": "^7.4.1",
     "nuxt": "^3.17.5",
-    "shadcn-docs-nuxt": "^1.0.4",
+    "shadcn-docs-nuxt": "^1.0.6",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
   }
