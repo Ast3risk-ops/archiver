@@ -4,9 +4,10 @@
 
 | Version | Supported          |
 | ------- | ------------------ |
-| Latest release (1.1)   | :white_check_mark: |
-| Older versions | :x: |
-| Alpha builds | :x: |
+| `main` branch | ✅ |
+| Latest release (1.1) | ✅ |
+| Older versions | ❌ |
+| Alpha builds | ❌ |
 
 ## Reporting a Vulnerability
 
