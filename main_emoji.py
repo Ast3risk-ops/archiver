@@ -474,7 +474,7 @@ async def bookmark_tag(ctx, message: discord.Message):
     embed.add_field(name="\n\n", value=", ".join(reactionlist), inline=False)
     embed.add_field(
         name="👤 Author",
-        value=f"`{message.author.name}` (<@{message.author.id}>)",
+        value=f"`@{message.author.name}` (<@{message.author.id}>)",
         inline=True,
     )
     embed.add_field(name="🔗 Link", value=f"{message.jump_url}", inline=True)
