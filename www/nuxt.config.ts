@@ -35,7 +35,7 @@ export default defineNuxtConfig({
       // Then crawl all the links on the page
       crawlLinks: true
     },
-    preset: "cloudflare_pages",
+    preset: "cloudflare_module",
     cloudflare: {
       deployConfig: true,
       nodeCompat: true,
