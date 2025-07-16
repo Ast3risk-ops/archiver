@@ -34,6 +34,11 @@ export default defineNuxtConfig({
       routes: ['/'],
       // Then crawl all the links on the page
       crawlLinks: true
+    },
+    preset: "cloudflare_pages",
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true
     }
   },
   modules: ['@nuxtjs/robots', '@nuxtjs/sitemap'],
