@@ -38,7 +38,8 @@ export default defineNuxtConfig({
     preset: "cloudflare_pages",
     cloudflare: {
       deployConfig: true,
-      nodeCompat: true
+      nodeCompat: true,
+      wrangler: { "name": "archiver-www" }
     }
   },
   modules: ['@nuxtjs/robots', '@nuxtjs/sitemap'],
