@@ -35,7 +35,7 @@ export default defineNuxtConfig({
       // Then crawl all the links on the page
       crawlLinks: true
     },
-    preset: "cloudflare_module",
+    preset: "cloudflare_pages",
     cloudflare: {
       deployConfig: true,
       nodeCompat: true,
@@ -57,5 +57,5 @@ export default defineNuxtConfig({
       }, 
     ], 
   },
-  compatibilityDate: '2024-07-06',
+  compatibilityDate: '2024-09-19',
 });
