@@ -37,7 +37,7 @@ export default defineNuxtConfig({
     },
     preset: "cloudflare_pages",
     cloudflare: {
-      deployConfig: false,
+      deployConfig: true,
       nodeCompat: true,
       wrangler: { "name": "archiver-www" }
     }
