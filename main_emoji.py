@@ -1,3 +1,4 @@
+# Generic bot code (Unicode emoji instead of custom emoji). Use when self-hosting.
 import ezcord
 import discord
 import platform

@@ -1,3 +1,4 @@
+# Public bot code (uses special emoji and has functions related to listing sites). DO NOT USE WHEN SELF-HOSTING!
 import ezcord
 import discord
 from discord.ext import tasks
