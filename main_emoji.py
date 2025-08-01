@@ -404,7 +404,7 @@ async def about(ctx):
         ezcord_version = importlib.metadata.version("ezcord")
     except importlib.metadata.PackageNotFoundError:
         ezcord_version = "?"
-    embed.set_thumbnail(url=ezcord.utils.avatar(f"{bot.application_id}"))
+    embed.set_thumbnail(url=ezcord.utils.avatar("1311438512045949029"))
     embed.add_field(name="🏰 Servers", value=int(len(bot.guilds)), inline=True)
     embed.add_field(name="👤 Users", value="?", inline=True)
     embed.add_field(
