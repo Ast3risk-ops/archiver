@@ -259,7 +259,7 @@ class TagSet(discord.ui.Modal):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(timeout=None, *args, **kwargs)
         # Modal for tag input
-        self.add_item(discord.ui.InputText(label="", required=False))
+        self.add_item(discord.ui.InputText(label="Message Tags", required=False))
 
     async def callback(self, interaction: discord.Interaction):
         await interaction.response.defer()
