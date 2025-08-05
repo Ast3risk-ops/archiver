@@ -308,7 +308,7 @@ class EditTagModal(discord.ui.Modal):
         super().__init__(title="Edit Tag(s)")
         self.add_item(
             discord.ui.InputText(
-                label="",
+                label="New tags",
                 placeholder="Enter new tag(s), leave this empty to remove all tags",
                 required=False,
             )
