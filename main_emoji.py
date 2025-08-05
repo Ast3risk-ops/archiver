@@ -13,6 +13,10 @@ website = (
     "https://caltrop.asterisk.lol"  # Will save a lot of time if the domain changes
 )
 
+public = (
+    1311438512045949029
+)
+
 numembeds = 0
 numfiles = 0
 embed = None
@@ -404,7 +408,7 @@ async def about(ctx):
         ezcord_version = importlib.metadata.version("ezcord")
     except importlib.metadata.PackageNotFoundError:
         ezcord_version = "?"
-    embed.set_thumbnail(url=ezcord.utils.avatar("1311438512045949029"))
+    embed.set_thumbnail(url=ezcord.utils.avatar(str(public)))
     embed.add_field(name="🏰 Servers", value=int(len(bot.guilds)), inline=True)
     embed.add_field(name="👤 Users", value="?", inline=True)
     embed.add_field(
