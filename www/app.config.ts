@@ -72,8 +72,7 @@ export default defineAppConfig({
       },
     },
     footer: {
-      credits:
-        'Made with ❤️ by the Archiver team \n\n [![notbyai](/notbyai-black.png){ width=150px :zoom=false }](https://notbyai.fyi){target="_blank" rel="noopener noreferrer" }',
+      credits: "Made with ❤️ by the Archiver team",
       links: [
         {
           icon: "lucide:asterisk",
