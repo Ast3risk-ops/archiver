@@ -16,9 +16,6 @@ website = (
 )
 
 owner = "Asterisk"
-embed = None
-numembeds = 0
-numfiles = 0
 
 webhookurl = str(os.getenv("WEBHOOK_URL"))
 topggtoken = str(os.getenv("TOPDOTGG_TOKEN"))
@@ -309,10 +306,25 @@ class DeleteBookmark(discord.ui.View):
     )
     async def button_callback(self, button, interaction):
         await interaction.response.defer()
+        embed = interaction.message.embeds[0]
+        numembeds = None
+        numfiles = None
+        for field in embed.fields:
+            name_lower = field.name.lower()
+            if "embeds" in name_lower:
+                try:
+                    numembeds = int(field.value)
+                except ValueError:
+                    numembeds = 0
+            if "attachments" in name_lower:
+                try:
+                    numfiles = int(field.value)
+                except ValueError:
+                    numfiles = 0
+        numembeds = numembeds or 0
+        numfiles = numfiles or 0
         self.disable_all_items()
         await interaction.message.delete()
-        global numembeds
-        global numfiles
         if numembeds or numfiles != 0:
             channel = interaction.channel
             to_delete = int(numembeds + numfiles)
@@ -523,7 +535,6 @@ async def bookmark_tag(ctx, message: discord.Message):
         count = i.count  # Number of times reacted
         formatted_emoji = str(i.emoji)
         reactionlist.append(f"{count}x {formatted_emoji} ")
-    global embed
     if message.content:
         embed = discord.Embed(
             title=f"<:mdiarchive:1311542586745294868> Archived Message On {discord.utils.format_dt(dt.now(), 'f')} ({discord.utils.format_dt(dt.now(), 'R')})",
@@ -569,19 +580,16 @@ async def bookmark_tag(ctx, message: discord.Message):
             name="<:mdichesscastle:1314056466516283413> Guild", value="DM", inline=True
         )
     if message.embeds:
-        global numembeds
         numembeds = len(message.embeds)  # Number of embeds
         embed.add_field(
             name="<:mdicardtext:1311825458480021596> Embeds",
-            value=f"{numembeds}",
+            value=f"{len(message.embeds)}",
             inline=True,
         )
     if message.attachments:
-        global numfiles
-        numfiles = len(message.attachments)
         embed.add_field(
             name="<:mdifiledownload:1322695880637284514> Attachments",
-            value=f"{numfiles}",
+            value=f"{len(message.attachments)}",
             inline=True,
         )
     embed.add_field(
