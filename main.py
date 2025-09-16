@@ -565,7 +565,7 @@ async def bookmark_tag(ctx, message: discord.Message):
         inline=True,
     )
     embed.add_field(
-        name="<:mdicodetags:1311506780332752977> ID",
+        name="<:mdicodetags:1311506780332752977> Message ID",
         value=f"{message.id}",
         inline=True,
     )
