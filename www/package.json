@@ -12,15 +12,15 @@
   },
   "dependencies": {
     "@divriots/jampack": "^0.33.1",
-    "@iconify-json/radix-icons": "^1.2.4",
+    "@iconify-json/radix-icons": "^1.2.5",
     "@iconify-json/ri": "^1.2.5",
-    "@iconify-json/simple-icons": "^1.2.51",
-    "@nuxt/kit": "^4.1.2",
-    "@nuxtjs/robots": "^5.5.1",
-    "@nuxtjs/sitemap": "^7.4.3",
-    "nuxt": "^4.1.2",
+    "@iconify-json/simple-icons": "^1.2.54",
+    "@nuxt/kit": "^4.1.3",
+    "@nuxtjs/robots": "^5.5.5",
+    "@nuxtjs/sitemap": "^7.4.7",
+    "nuxt": "^4.1.3",
     "shadcn-docs-nuxt": "^1.1.2",
-    "vue": "^3.5.21",
+    "vue": "^3.5.22",
     "vue-router": "^4.5.1"
   }
 }
