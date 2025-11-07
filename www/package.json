@@ -14,13 +14,13 @@
     "@divriots/jampack": "^0.33.1",
     "@iconify-json/radix-icons": "^1.2.5",
     "@iconify-json/ri": "^1.2.6",
-    "@iconify-json/simple-icons": "^1.2.55",
-    "@nuxt/kit": "^4.2.0",
+    "@iconify-json/simple-icons": "^1.2.57",
+    "@nuxt/kit": "^4.2.1",
     "@nuxtjs/robots": "^5.5.6",
     "@nuxtjs/sitemap": "^7.4.7",
-    "nuxt": "^4.2.0",
+    "nuxt": "^4.2.1",
     "shadcn-docs-nuxt": "^1.1.4",
-    "vue": "^3.5.22",
+    "vue": "^3.5.23",
     "vue-router": "^4.6.3"
   }
 }
