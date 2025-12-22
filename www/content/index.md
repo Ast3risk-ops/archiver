@@ -6,9 +6,9 @@ toc: false
 ::hero
 ---
 announcement:
-  title: '1.1 released!'
+  title: '1.2 released!'
   icon: 'lucide:party-popper'
-  to: '/changelog/1-1'
+  to: '/changelog/1-2'
   target: '_self'
 actions:
   - name: Documentation
