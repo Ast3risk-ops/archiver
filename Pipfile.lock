@@ -244,12 +244,12 @@
         },
         "ezcord": {
             "hashes": [
-                "sha256:66f649625c05f7ee0e79a82bebdd4670cdb31a2159fcbc6813d37c2cceb6a0f3",
-                "sha256:6ab1ffba22d1462e9bca527428424036788cf7cf1128d48ea7f30f123535f642"
+                "sha256:033ae3cfc7506b2afb734245490c7aa18ae4772bc1092a6c0dbd63b1e2df55ef",
+                "sha256:2c37820b5931b4a5c6f3221af1a8ff06a8f0f26c2a0318f6a18f5cb85836fb9e"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.9'",
-            "version": "==0.7.3"
+            "version": "==0.7.4"
         },
         "frozenlist": {
             "hashes": [
