@@ -1,7 +1,7 @@
 -i https://pypi.org/simple
 aiocache==0.12.3
 aiohappyeyeballs==2.6.1; python_version >= '3.9'
-aiohttp==3.13.2; python_version >= '3.9'
+aiohttp==3.13.3; python_version >= '3.9'
 aiosignal==1.4.0; python_version >= '3.9'
 aiosqlite==0.22.1; python_version >= '3.9'
 attrs==25.4.0; python_version >= '3.9'
