@@ -13,13 +13,13 @@
   "dependencies": {
     "@divriots/jampack": "^0.33.1",
     "@iconify-json/radix-icons": "^1.2.6",
-    "@iconify-json/ri": "^1.2.7",
-    "@iconify-json/simple-icons": "^1.2.67",
+    "@iconify-json/ri": "^1.2.9",
+    "@iconify-json/simple-icons": "^1.2.69",
     "@nuxt/kit": "^4.3.0",
-    "@nuxtjs/robots": "^5.6.7",
-    "@nuxtjs/sitemap": "^7.5.2",
+    "@nuxtjs/robots": "^5.7.0",
+    "@nuxtjs/sitemap": "^7.6.0",
     "nuxt": "^4.3.0",
-    "shadcn-docs-nuxt": "^1.1.8",
+    "shadcn-docs-nuxt": "^1.1.9",
     "vue": "^3.5.27",
     "vue-router": "^4.6.4"
   }
