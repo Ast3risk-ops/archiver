@@ -57,5 +57,8 @@ export default defineNuxtConfig({
       }, 
     ], 
   },
+  ogImage: {
+    zeroRuntime: true
+  },
   compatibilityDate: '2025-07-15',
 });
