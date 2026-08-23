@@ -577,7 +577,7 @@ async def bookmark_tag(ctx, message: discord.Message):
         )
     else:
         embed.add_field(
-            name="<:mdichesscastle:1314056466516283413> Guild", value="DM", inline=True
+            name="<:mdichesscastle:1314056466516283413> Guild", value="Unknown/DM", inline=True
         )
     if message.embeds:
         numembeds = len(message.embeds)  # Number of embeds

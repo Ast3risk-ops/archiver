@@ -497,7 +497,7 @@ async def bookmark_tag(ctx, message: discord.Message):
     if message.guild:
         embed.add_field(name="🏰 Guild", value=f"[{message.guild.id}](https://discord-lookup.void-dev.co/guild/{message.guild.id})", inline=True)
     else:
-        embed.add_field(name="🏰 Guild", value="DM", inline=True)
+        embed.add_field(name="🏰 Guild", value="Unknown/DM", inline=True)
     if message.embeds:
         embed.add_field(name="🔲 Embeds", value=f"{len(message.embeds)}", inline=True)
     if message.attachments:
